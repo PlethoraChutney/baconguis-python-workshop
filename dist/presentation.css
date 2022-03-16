@@ -1,0 +1,140 @@
+thead th{
+    font-weight: bold;
+    border-bottom-style: solid;
+    border-width: 1px;
+}
+
+p {
+    padding: 5px;
+}
+
+.lowlight {
+    opacity: 25%;
+}
+
+div.fit-one, div.fit-two, div.fit-three {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    text-align:center;
+}
+
+.fit-two img, fit-two pre, .fit-two > video, .fit-two div {
+    max-width: 45%;
+    max-height: 40vh;
+    vertical-align: middle;
+}
+
+.fit-two div {
+    width: 45%;
+}
+
+.fit-one img {
+    max-width: 100%;
+    max-height: 40vh;
+    vertical-align: middle;
+}
+
+.fit-one video {
+    max-width: 1000px;
+    max-height: 500px;
+    vertical-align: middle;
+}
+
+.fit-one iframe {
+    width: 820px;
+    height: 520px;
+}
+
+.fit-two > iframe {
+    width: 66%;
+    height: 100%;
+}
+
+.fit-three > img, .fit-three > div{
+    max-height: 100%;
+    max-width: 27%;
+    margin: 0 3%
+}
+
+.fit-three > div {
+    max-height: 100%;
+    max-width: 33%;
+}
+
+.stack-three > img {
+    height: 33%;
+    max-width: 100%;
+}
+
+div.read-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+div.read-text > p {
+    max-width: 50%;
+}
+
+img.bordered, video.bordered, iframe.bordered {
+  border: solid;
+  border-width: 2px;
+  padding: 0.5rem;
+  background-color: white;
+  margin: 5px;
+}
+
+div.im-cap {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+p.caption {
+    font-size: 12pt;
+}
+
+p.citation {
+    font-size: 8pt;
+}
+
+p.bottom-left {
+    line-height: 100vh;
+    position: fixed;
+    top:0;
+    left: 0;
+}
+
+.reveal sub {
+    font-size: .5em;
+}
+
+.reveal pre {
+    background-color: white;
+    max-width: none;
+    max-height: none;
+}
+
+.reveal pre{
+    max-width: 800px;
+    max-height: none;
+}
+
+span.emph {
+    color: #3788BE;
+    font-style: italic;
+}
+
+span.fake-code {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: white;
+}
+
+div > pre {
+    width: 100%;
+}

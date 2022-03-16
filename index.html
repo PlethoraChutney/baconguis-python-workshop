@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Baconguis Python Workshop</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/posert.css" id="theme">
+		<link rel="stylesheet" href="dist/presentation.css">
+	</head>
+  <body>
+<div class="reveal">
+<div class="slides">
+
+
+<section>
+    <h1>Baconguis Lab Python Workshop</h1>
+</section>
+
+<section>
+    <h1>Day One: What is python, and how do I use it?</h1>
+</section>
+
+<section data-auto-animate>
+    <h2>Python history</h2>
+</section>
+
+<section data-auto-animate>
+    <h2>Python history</h2>
+    <div class="fit-one im-cap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Guido-portrait-2014-drc.jpg" alt="" class="bordered">
+        <p>Developed by Guido van Rossum in the late 1980s</p>
+    </div>
+</section>
+
+<section data-auto-animate>
+    <h2>Python history</h2>
+    <div class="fit-one im-cap">
+        <p>The most up-to-date version is python 
+            <a href="https://www.python.org/">3.10</a>
+        , but some people <em>still</em> use 2.7!</p>
+        <p class="fragment">You should always use python 3</p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Python Fundamentals</h2>
+</section>
+
+<section data-auto-animate="">
+    <h2>Python Fundamentals</h2>
+    <ul>
+        <li>Python is an <i>interpreted</i> language</li>
+        <li class="fragment">Python is <i>dynamically typed</i></li>
+        <li class="fragment">Python makes extensive use of modules</li>
+        <li class="fragment">Python is designed to be easy to read and write</li>
+    </ul>
+</section>
+
+<section>
+    <h2>What is an interpreted language?</h2>
+    <div class="read-text">
+        <p>
+            The written code can be executed directly by the
+            <span class="emph">python interpreter</span>, without a compilation step
+        </p>
+        <p class="fragment">
+            Interpreted languages are generally <i>faster to write</i> but
+            <i>slower to run</i>.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>Python Modules</h2>
+    <div class="read-text">
+        <p>
+            Python comes pre-packaged with tons of modules to do things like generate random
+            numbers, work with new or more complex data structures, interact with the operating
+            system, etc.
+        </p>
+
+        <p>
+            In addition, there is an extremely robust python community which contributes tons
+            of free modules for download --- for instance, Appia!
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>Python is easy to read and write</h2>
+    <p>(don't worry if you don't know what's going on)</p>
+    <div class="fit-two">
+        <div>
+            <p>Python</p>
+            <pre><code data-trim>
+                colors = ['red', 'yellow', 'green']
+                for color in colors:
+                    print('My favorite color is ' + color)
+            </code></pre>
+        </div>
+        <div>
+            <p>C++</p>
+            <pre><code data-trim>
+                str colors [3] = {"red", "yellow", "green"};
+
+                for (int i = 0; i < colors.size(); i++) {
+                    cout << "My favorite color is ";
+                    cout << colors[i] << endl;
+                }
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h1>OK, let's get started.</h1>
+</section>
+
+<section>
+    <h2>Download and install python</h2>
+    <a href="https://www.python.org">https://www.python.org</a>
+</section>
+
+<section>
+    <h2>Optional but recommended: download and install a text editor</h2>
+    <p>Some people like Atom, Sublime, or others. I will be using VS Code.</p>
+    <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>
+</section>
+
+<section data-auto-animate="">
+    <h2>An aside: why a text editor?</h2>
+    <div class="fit-two">
+        <img src="figures/notepad.png" alt="" class="bordered">
+        <img src="figures/error-noh.png" alt="" class="bordered">
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>An aside: why a text editor?</h2>
+    <div class="fit-two">
+        <img src="figures/vscode.png" alt="" class="bordered">
+        <img src="figures/error-h.png" alt="" class="bordered">
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>How can I use python?</h2>
+    <div class="fit-one">
+        <video src="figures/terminal-python.mp4" class="bordered" data-autoplay></video>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>How can I use python?</h2>
+    <div class="fit-two">
+        <div class="im-cap">
+            <p>practice.py</p>
+            <pre><code data-trim="">
+                print('Hello world!')
+                
+                practice = ['one', 'two', 'three']
+                for word in practice:
+                    print(word)
+            </code></pre>
+        </div>
+        <div class="im-cap">
+            <p>Terminal/Powershell</p>
+            <video src="figures/script-python.mp4" class="bordered" data-autoplay></video>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Python as a calculator</h2>
+    <div class="fit-two">
+        <div class="im-cap">
+            <p>Python has all the math you'd expect:</p>
+            <pre data-id="norm-math"><code data-trim>
+                >>> 1 + 2
+                3
+                >>> 3 - 1
+                2
+                >>> 2 * 2
+                4
+                >>> 6 / 3
+                2.0
+                >>> 4 / 2 - 1
+                1.0
+                >>> 4 / (2 - 1)
+                4.0
+            </code></pre>
+        </div>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2>Python as a calculator</h2>
+    <div class="fit-two">
+        <div class="im-cap">
+            <p>Python has all the math you'd expect:</p>
+            <pre data-id="norm-math"><code data-trim>
+                >>> 1 + 2
+                3
+                >>> 3 - 1
+                2
+                >>> 2 * 2
+                4
+                >>> 6 / 3
+                2.0
+                >>> 4 / 2 - 1
+                1.0
+                >>> 4 / (2 - 1)
+                4.0
+            </code></pre>
+        </div>
+        <div class="im-cap">
+            <p>Plus some you may not:</p>
+            <pre><code data-trim>
+                >>> 3 ** 2
+                9
+                >>> 4 % 3
+                1
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h1>Practice 1.1: Calculation</h1>
+    <ol>
+        <li>What is 63 times 457</li>
+        <li>What is 12 times the sum of 198 and 33</li>
+        <li>What is 4 to the power of 60 divided by 60 to the power of 4</li>
+    </ol>
+</section>
+<section data-auto-animate="">
+    <h1>Practice 1.1: Calculation</h1>
+    <ol>
+        <li>What is 63 times 457</li>
+        <li>What is 12 times the sum of 198 and 33</li>
+        <li>What is 4 to the power of 60 divided by 60 to the power of 4</li>
+    </ol>
+    <p>Here's how I'd do it, but you may have found a better way!</p>
+    <pre>practice.py<code data-trim>
+        print(63 * 457)
+        print(12 * (198 + 33))
+        print(4 ** 60 / 60 ** 4)
+    </code></pre>
+</section>
+
+<section data-auto-animate="">
+    <h1>Variables</h1>
+</section>
+
+<section data-auto-animate="">
+    <h1>Variables</h1>
+    <div class="fit-two">
+        <div>
+            <pre data-id="var-code">variables.py<code data-trim>
+                my_variable = 'Hello'
+                print(my_variable)
+            </code></pre>
+        </div>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h1>Variables</h1>
+    <div class="fit-two">
+        <div>
+            <pre data-id="var-code">variables.py<code data-trim>
+                my_variable = 'Hello'
+                print(my_variable)
+
+                my_variable = 'world!'
+                print(my_variable)
+            </code></pre>
+        </div>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h1>Variables</h1>
+    <div class="fit-two">
+        <div>
+            <pre data-id="var-code">variables.py<code data-trim>
+                my_variable = 'Hello'
+                print(my_variable)
+
+                my_variable = 'world!'
+                print(my_variable)
+
+                my_variable = 6
+                print(my_variable - 2)
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h1>Variables</h1>
+    <div class="fit-two">
+        <div>
+            <pre data-id="var-code">variables.py<code data-trim>
+                my_variable = 'Hello'
+                print(my_variable)
+
+                my_variable = 'world!'
+                print(my_variable)
+
+                my_variable = 6
+                print(my_variable - 2)
+            </code></pre>
+        </div>
+        <div>
+            <pre>Terminal<code data-trim>
+                $ python ./variables.py
+                Hello
+                world!
+                4
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h1>Practice 1.2: Variables</h1>
+    <div class="fit-two">
+        <div>
+            <p>
+                You're on a vacation in Washington and want to buy a souvenir. You see
+                a mug that will remind you of the trip and decide to buy it. <span class="emph">
+                    It costs
+                    $11.95
+                </span>. Store this value in a variable called <span class="fake-code">mug_price</span>
+            </p>
+            <p class="fragment">
+                <span class="emph">Sales tax in Washington is 6.5%</span>. Replace the value in <span class="fake-code">mug_price</span>
+                with the price after tax. Use the variable, don't calculate from scratch!
+            </p>
+            <p class="fragment">
+                Uh oh! This shop expects you to pay a service charge to the person working the
+                register. <span class="emph">The service charce is $3.50</span>. Print the total price so you know how much
+                to pay for the mug, including tax and service charge.
+            </p>
+        </div>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h1>Practice 1.2: Variables</h1>
+    <div class="fit-two">
+        <div>
+            <p>
+                You're on a vacation in Washington and want to buy a souvenir. You see
+                a mug that will remind you of the trip and decide to buy it. <span class="emph">
+                    It costs
+                    $11.95
+                </span>. Store this value in a variable called <span class="fake-code">mug_price</span>
+            </p>
+            <p>
+                <span class="emph">Sales tax in Washington is 6.5%</span>. Replace the value in <span class="fake-code">mug_price</span>
+                with the price after tax. Use the variable, don't calculate from scratch!
+            </p>
+            <p>
+                Uh oh! This shop expects you to pay a service charge to the person working the
+                register. <span class="emph">The service charce is $3.50</span>. Print the total price so you know how much
+                to pay for the mug, including tax and service charge.
+            </p>
+        </div>
+        <div>
+            <pre>mug_shopping.py<code data-trim>
+                mug_price = 11.95
+                mug_price = mug_price * 1.065
+                print(mug_price + 3.5)
+            </code></pre>
+            <pre>Terminal<code data-trim>
+                $ python ./mug_shopping.py
+                16.22675
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h1>That's it for the first workshop!</h1>
+</section>
+
+</div>
+</div>
+
+
+    <script src="dist/reveal.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/tokyo-night-dark.min.css">
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script>
+        Reveal.initialize({
+            center: true,
+            hash: true,
+            controls: false,
+            slideNumber: 'c/t',
+            width: 1200,
+            autoPlayMedia: true,
+            plugins: [ RevealHighlight, RevealZoom ]
+        });
+    </script>
+  </body>
+</html>
