@@ -577,34 +577,10 @@
 </section>
 <section data-auto-animate="">
     <h2 data-id="type-header">Types: Floats</h2>
-    <div class="fit-two">
-        <div>
-            <p>
-                To store large numbers in a memory-efficient way, or to store non-whole
-                numbers, we need to use a <span class="emph">float</span>.
-            </p>
-            <p>
-                Python will keep track of when something needs to be converted to
-                a <span class="emph">float</span>, there's no need to think about it yourself.
-            </p>
-        </div>
-        <pre data-id="float-example">python<code data-trim="">
-            >>> my_big_num = 2e200
-            >>> type(my_big_num)
-            &lt;class 'float'&gt;
-            >>> print(my_big_num)
-            2e+200
-            >>> print(int(my_big_num))
-            199999999999999993946624442502072331894900655091004725296483501900693696871108151068392676809412503736055024831947764816364271468736556969278770082094479755742047182133579963622363626612334257709776896
-        </code></pre>
-    </div>
-</section>
-<section data-auto-animate="">
-    <h2 data-id="type-header">Types: Floats</h2>
     <div class="read-text">
         <p>
-            It's impossible to represent all numbers using a finite system with
-            infinite precision.
+            It's impossible to represent all numbers with
+            infinite precision in a finite system.
         </p>
         <p class="fragment">
             This is a well-known and well-studied problem in computer science. If you're interested,
@@ -807,11 +783,12 @@ TypeError: unsupported operand type(s) for +:
         This script actually wouldn't complete due to a bug. Can you find it?
     </p>
     
-    <pre>types.py<code data-trim class="language-python">
+    <pre style="max-width: 100vw;">types.py<code data-trim class="language-python" style="font-size: 26pt;">
         print(str(1))
         print(str(True) + ' means yes.')
         print(bool(0) + ' means no.')
         print(str(int(6 / 2)) + 'rd time is the charm!')
+        print(int('2' + '1') / 3)
     </code></pre>
 </section>
 <section>
