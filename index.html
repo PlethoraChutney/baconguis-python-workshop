@@ -213,7 +213,7 @@
         <h2>The filesystem</h2>
         <div class="read-text">
             <p>
-                To describe wher a file is, you can use an <span class="emph">absolute path</span>
+                To describe where a file is, you can use an <span class="emph">absolute path</span>
                 or a <span class="emph">relative path</span>.
             </p>
             <p class="fragment">
@@ -304,7 +304,7 @@
     </section>
     
     <section data-auto-animate="">
-        <h1>Practice 1.1: Calculation</h1>
+        <h2>Practice 1.1: Calculation</h2>
         <ol>
             <li>What is 63 times 457</li>
             <li>What is 12 times the sum of 198 and 33</li>
@@ -312,7 +312,7 @@
         </ol>
     </section>
     <section data-auto-animate="">
-        <h1>Practice 1.1: Calculation</h1>
+        <h2>Practice 1.1: Calculation</h2>
         <ol>
             <li>What is 63 times 457</li>
             <li>What is 12 times the sum of 198 and 33</li>
@@ -400,7 +400,7 @@
     </section>
     
     <section data-auto-animate="">
-        <h1>Practice 1.2: Variables</h1>
+        <h2>Practice 1.2: Variables</h2>
         <div>
             <div>
                 <p>
@@ -423,9 +423,9 @@
         </div>
     </section>
     <section data-auto-animate="">
-        <h1>Practice 1.2: Variables</h1>
+        <h2>Practice 1.2: Variables</h2>
         <div class="fit-two">
-            <div>
+            <div style="font-size: 16pt">
                 <p>
                     You're on a vacation in Washington and want to buy a souvenir. You see
                     a mug that will remind you of the trip and decide to buy it. <span class="emph">
@@ -460,6 +460,364 @@
     <section>
         <h1>That's it for the second day!</h1>
     </section>
+</section>
+
+<section>
+<section>
+    <h1>Day Three: Types</h1>
+</section>
+
+<section data-auto-animate="">
+    <h2>Warmup</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                How would I create a variable named <span class="fake-code">workshop_date</span>
+                and store today's date in it?
+            </p>
+        </div>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2>Warmup</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                How would I create a variable named <span class="fake-code">workshop_date</span>
+                and store today's date in it?
+            </p>
+        </div>
+        <pre>date_var.py<code data-trim="">
+            workshop_date = "2022-04-01"
+        </code></pre>
+    </div>
+</section>
+
+<section>
+    <h2>Why do we have to put quotes around the value?</h2>
+    <p class="fragment">
+        When we store something in a variable, python assigns it a
+        <span class="emph">type</span>.
+    </p>
+</section>
+
+<section data-auto-animate="">
+    <h2 data-id="type-header">Types</h2>
+    <p>
+        <span class="emph">Types</span> determine what types of operations are available
+        for a given object, and how they are stored in memory.
+    </p>
+</section>
+
+<section data-auto-animate="">
+    <h2 data-id="type-header">Types: String</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                Everything we've been using <span class="fake-code">print()</span> on has
+                been a <span class="emph">string</span>, or as it's known in python, a
+                <span class="emph">str</span>.
+            </p>
+            <p>
+                <span class="emph">Strings</span> are collections of characters surrounded by quotes.
+                Any time you want to store or use a word or sentence, that's a <span class="emph">string</span>
+            </p>
+        </div>
+        <pre>python<code data-trim="">
+            >>> my_string = "Hello world!"
+            >>> type(my_string)
+            &lt;class 'str'&gt;
+        </code></pre>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2 data-id="type-header">Types: Integer</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                An <span class="emph">integer</span>, or <span class="emph">int</span>, is used
+                to store whole numbers. This is what's used to do math, keep track of iterations,
+                etc.
+            </p>
+        </div>
+        <pre>python<code data-trim="">
+            # note that there are no quotes
+            # around an int
+            #
+            # only str objects need quotes!
+            >>> my_int = 3
+            >>> type(my_int)
+            &lt;class 'int'&gt;
+        </code></pre>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2 data-id="type-header">Types: Floats</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                To store large numbers in a memory-efficient way, or to store non-whole
+                numbers, we need to use a <span class="emph">float</span>.
+            </p>
+            <p>
+                Python will keep track of when something needs to be converted to
+                a <span class="emph">float</span>, there's no need to think about it yourself.
+            </p>
+        </div>
+        <pre data-id="float-example">python<code data-trim="">
+            >>> my_big_num = 2e200
+            >>> type(my_big_num)
+            &lt;class 'float'&gt;
+            >>> print(my_big_num)
+            2e+200
+        </code></pre>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2 data-id="type-header">Types: Floats</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                To store large numbers in a memory-efficient way, or to store non-whole
+                numbers, we need to use a <span class="emph">float</span>.
+            </p>
+            <p>
+                Python will keep track of when something needs to be converted to
+                a <span class="emph">float</span>, there's no need to think about it yourself.
+            </p>
+        </div>
+        <pre data-id="float-example">python<code data-trim="">
+            >>> my_big_num = 2e200
+            >>> type(my_big_num)
+            &lt;class 'float'&gt;
+            >>> print(my_big_num)
+            2e+200
+            >>> print(int(my_big_num))
+            199999999999999993946624442502072331894900655091004725296483501900693696871108151068392676809412503736055024831947764816364271468736556969278770082094479755742047182133579963622363626612334257709776896
+        </code></pre>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2 data-id="type-header">Types: Floats</h2>
+    <div class="read-text">
+        <p>
+            It's impossible to represent all numbers using a finite system with
+            infinite precision.
+        </p>
+        <p class="fragment">
+            This is a well-known and well-studied problem in computer science. If you're interested,
+            googling "floating point arithmetic" will get you more info
+            on the topic.
+        </p>
+        <p class="fragment">
+            For our purposes, it's sufficient just to know that this inaccuracy exists.
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2 data-id="type-header">Types: Boolean</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                A <span class="emph">boolean</span>, or <span class="emph">bool</span>, stores a single binary
+                value: <span class="fake-code">True</span> or <span class="fake-code">False</span>.
+            </p>
+            <p>
+                Even though these look like strings, they're special words in python to
+                represent truth value, and so they don't need quotes.
+            </p>
+        </div>
+        <div class="r-stack">
+            <pre>python<code data-trim="" class="language-python">
+                >>> my_bool = True
+                >>> type(my_bool)
+                &lt;class 'bool'&gt;
+                >>> print(my_bool)
+                True
+            </code></pre>
+            <pre class="fragment" data-fragment-index="1">python<code data-trim class="language-python">
+                # see what happens if we make it
+                # a string instead
+                >>> my_fake_bool = 'True'
+                >>> type(my_fake_bool)
+                &lt;class 'str'&gt;
+                >>> print(my_fake_bool)
+                True
+            </code></pre>
+        </div>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2 data-id="type-header">Types: Boolean</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                Like everything else, this is case-sensitive! You must use
+                <span class="fake-code">True</span> or <span class="fake-code">False</span>,
+                <span class="fake-code">true</span>/<span class="fake-code">false</span>
+                won't work!
+            </p>
+        </div>
+        <pre>python<code data-trim="" class="language-python">
+            >>> print(False)
+            False
+            # 
+            # python thinks `false` is
+            # an undefined variable
+            >>> print(false)
+            Traceback (most recent call last):
+            File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+
+            NameError: name 'false' is
+            not defined.
+            Did you mean: 'False'?
+
+        </code></pre>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Exercises: Types</h2>
+    <p>What would the results of the following commands be?</p>
+    <pre><code data-trim class="language-python">
+        type('Hello world!')
+        type(123)
+        type(True)
+        type('')
+    </code></pre>
+</section>
+<section data-auto-animate>
+    <h2>Exercises: Types</h2>
+    <p>
+        When we were first learning about math, you may have noticed something strange
+        about the results of division:
+    </p>
+    <pre><code data-trim class="language-python">
+        >>> 2 * 3
+        6
+        >>> 6 / 2
+        3.0
+    </code></pre>
+    <p>Why do you think 3 is written <span class="fake-code">3.0</span>?</p>
+</section>
+
+<section data-auto-animate="">
+    <h2>Why should I care about types?</h2>
+</section>
+<section data-auto-animate="">
+    <h2>Why should I care about types?</h2>
+    <div class="read-text">
+        <p>
+            Many functions only work on objects of a certain type, or do different
+            things with different types.
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Why should I care about types?</h2>
+    <div class="fit-two">
+        <pre>type_compare.py<code 
+            class="language-python" 
+            data-trim="" 
+            style="font-size: 14pt;"
+            data-line-numbers>
+            string_plus_string = 'Hello' + ' ' + 'world!'
+            print(string_plus_string)
+
+            int_plus_int = 2 + 3
+            print(int_plus_int)
+
+            string_plus_int = 2 + '3'
+            print(string_plus_int)
+        </code></pre>
+
+        <pre>Terminal Output<code class="language-python" style="font-size: 12pt;">&gt; py type_compare.py
+Hello world!
+5
+Traceback (most recent call last):
+  File "type_compare.py", line 7, in &lt;module&gt;
+    string_plus_int = 2 + '3'
+TypeError: unsupported operand type(s) for +:
+    'int' and 'str'</code></pre>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2>Why should I care about types?</h2>
+    <div class="fit-two">
+        <pre>type_compare.py<code 
+            class="language-python" 
+            data-trim="" 
+            style="font-size: 14pt;"
+            data-line-numbers>
+            string_plus_string = 'Hello' + ' ' + 'world!'
+            print(string_plus_string)
+
+            int_plus_int = 2 + 3
+            print(int_plus_int)
+
+            string_plus_int = 2 + '3'
+            print(string_plus_int)
+        </code></pre>
+
+        <pre>Terminal Output<code class="language-python" style="font-size: 12pt;">&gt; py type_compare.py
+Hello world!
+5
+Traceback (most recent call last):
+  File "type_compare.py", line 7, in &lt;module&gt;
+    string_plus_int = 2 + '3'
+TypeError: unsupported operand type(s) for +:
+    'int' and 'str'</code></pre>
+    </div>
+    <p>
+        How could we fix <span class="fake-code">string_plus_int</span>?
+    </p>
+</section>
+
+<section data-auto-animate="">
+    <h2>Converting types</h2>
+    <div class="fit-two">  
+        <p>
+            You can change the type of an object by converting it using the appropriate
+            function.
+        </p>
+
+        <pre>python3<code 
+            class="language-python" 
+            data-trim="">
+            >>> 2 + '3'
+            # [TypeError from last slide]
+            >>> 2 + int('3')
+            5
+            # The following result is a string,
+            # but when you print it you can't tell
+            >>> str(6 / 2)
+            3.0
+        </code></pre>
+    </div>
+</section>
+
+<section>
+    <h2>Exercises: Type Conversion</h2>
+    <p>What would the output of this script be?</p>
+    <p class="fragment">
+        This script actually wouldn't complete due to a bug. Can you find it?
+    </p>
+    
+    <pre>types.py<code data-trim class="language-python">
+        print(str(1))
+        print(str(True) + ' means yes.')
+        print(bool(0) + ' means no.')
+        print(str(int(6 / 2)) + 'rd time is the charm!')
+    </code></pre>
+</section>
+<section>
+    <h1>That's it for day three!</h1>
+</section>
+
 </section>
 
 </div>

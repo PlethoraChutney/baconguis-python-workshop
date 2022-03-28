@@ -21,10 +21,21 @@ div.fit-one, div.fit-two, div.fit-three {
     text-align:center;
 }
 
-.fit-two img, fit-two pre, .fit-two > video, .fit-two div {
+.fit-two img, .fit-two > video, .fit-two div {
     max-width: 45%;
     max-height: 40vh;
     vertical-align: middle;
+}
+
+.reveal .fit-two pre {
+    max-height: 100%;
+    max-width: 48%;
+    vertical-align: middle;
+}
+
+.reveal .fit-two>div>pre {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .fit-two div {
