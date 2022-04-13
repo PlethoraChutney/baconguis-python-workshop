@@ -797,6 +797,565 @@ TypeError: unsupported operand type(s) for +:
 
 </section>
 
+<section>
+<section>
+    <h1>Day Four: Lists and dicts</h1>
+</section>
+
+<section data-auto-animate="">
+    <h2>Warmup</h2>
+    <div>
+        <p>
+            Write a line of code that creates a variable with an <span class="fake-code">int</span>
+            stored in it.
+        </p>
+        <p class="fragment">
+            Convert that variable to a <span class="fake-code">float</span>.
+        </p>
+        <p class="fragment">
+            Print the variable.
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Warmup</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                Write a line of code that creates a variable with an <span class="fake-code">int</span>
+                stored in it.
+            </p>
+            <p>
+                Convert that variable to a <span class="fake-code">float</span>.
+            </p>
+            <p>
+                Print the variable.
+            </p>
+        </div>
+        <div>
+            <pre>warmup_1.py<code data-trim class="language-python">
+                my_int = 3
+                my_int = float(my_int)
+                print(my_int)
+            </code></pre>
+            <pre>Result<code data-trim class="language-python">
+                3.0
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Warmup</h2>
+    <div class="fit-two">
+        <div>
+            <p>What is printed to the terminal as a result of this code block?</p>
+        </div>
+        <pre>warmup_2.py<code data-trim class="language-python">
+            result = (int('3' + '2') + 1) / 3
+            result = result - 4
+            print(result)
+        </code></pre>
+    </div>
+</section>
+
+<section>
+    <h2>The Missing Types</h2>
+    <div class="read-text">
+        <p>
+            There are two main ways to make collections of objects in python:
+            <span class="emph">lists</span> and <span class="emph">dictionaries</span>.
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Lists</h2>
+
+    <div class="fit-two">
+        <div>
+            <p>Lists are created with square brackets [].</p>
+        </div>
+        <pre data-id="list-example"><code data-trim="" class="language-python">
+            my_list = ['one', 'two', 'three', 'four']
+        </code></pre>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2>Lists</h2>
+
+    <div class="fit-two">
+        <div>
+            <p>Lists are created with square brackets [].</p>
+            <p>
+                <span class="emph">Elements</span> of lists are accessed starting with
+                <span class="fake-code">0</span> (<span class="emph">"zero-indexed"</span>).
+            </p>
+        </div>
+        <pre data-id="list-example"><code data-trim="" class="language-python">
+            my_list = ['one', 'two', 'three', 'four']
+            # first_element is 'one'
+            first_element = my_list[0]
+        </code></pre>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2>Lists</h2>
+
+    <div class="fit-two">
+        <div>
+            <p>Lists are created with square brackets [].</p>
+            <p>
+                <span class="emph">Elements</span> of lists are accessed starting with
+                <span class="fake-code">0</span> (<span class="emph">"zero-indexed"</span>).
+            </p>
+            <p>
+                You can count backward from the last element using a negative index.
+            </p>
+        </div>
+        <pre data-id="list-example"><code data-trim="" class="language-python">
+            my_list = ['one', 'two', 'three', 'four']
+            # first_element is 'one'
+            first_element = my_list[0]
+            # last_element is 'four'
+            last_element = my_list[-1]
+        </code></pre>
+    </div>
+</section>
+<section>
+    <h2>Lists</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                Lists can hold any type, including multiple different types.
+            </p>
+            <p>Lists can even hold other lists 🙂</p>
+        </div>
+        <pre data-id="list-example"><code class="language-python">
+wacky_list = [
+    1,
+    'two',
+    3.0,
+    ['four', 'five', 'six']
+]
+        </code></pre>
+    </div>
+    <p class="fragment">
+        <span class="emph">Exercise:</span> What is the result of <span class="fake-code">print(wacky_list[3][1])</span>?
+    </p>
+</section>
+
+<section>
+    <h2>Lists - slicing</h2>
+    <div class="fit-two">
+        <div>
+            <p>You can access a sub-list by <span class="emph">slicing</span> a list</p>
+            <p>
+                <span class="emph">Slicing</span> is an extension of the indexing
+                syntax.
+            </p>
+            <p>
+                <span class="fake-code">list[first:last:step]</span>
+            </p>
+            <p>
+                <span class="fake-code">First</span> is inclusive, <span class="fake-code">last</span> is not. <span class="fake-code">Step</span> tells you the size of the step
+                taken between <span class="fake-code">first</span> and <span class="fake-code">last</span>.
+            </p>
+        </div>
+        <pre><code class="language-python smaller">
+my_list = [1, 2, 3, 4, 5]
+print(my_list[0:3]) # [1, 2, 3]
+print(my_list[0:5:2]) # [1, 3, 5]
+# 4 is not printed below because
+# the step size is too big
+print(my_list[0:4:2]) # [1, 3]
+# leaving out one of the options
+# assumes sensible defaults
+print(my_list[::2]) # [1, 3, 5]
+        </code></pre>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Lists - exercise</h2>
+    <div class="read-text">
+        <p>Make a list of the numbers one to ten (strings, floats, ints are all fine).</p>
+        <p>Print the list of only the <span class="emph">even numbers</span> using a slice.</p>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2>Lists - exercise</h2>
+    <div class="read-text">
+        <p>Make a list of the numbers one to ten (strings, floats, ints are all fine).</p>
+        <p>Print the list of only the <span class="emph">even numbers</span> using a slice.</p>
+    </div>
+    <pre>even_numbers.py<code class="language-python" data-trim="">
+        numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        print(numbers[1:10:2])
+    </code></pre>
+</section>
+
+<section data-auto-animate="">
+    <h2>Dictionaries</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                <span class="emph">Dictionaries</span> (or <span class="emph">dicts</span>) let you store a collection with names
+                for the elements, instead of just indices.
+            </p>
+            <p><span class="emph">Dictionaries</span> are created using curly braces {}</p>
+        </div>
+        <pre data-id="dictionary-example"><code class="language-python" data-trim>
+            my_dictionary = {}
+        </code></pre>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2>Dictionaries</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                <span class="emph">Dictionaries</span> (or <span class="emph">dicts</span>) let you store a collection with names
+                for the elements, instead of just indices.
+            </p>
+            <p><span class="emph">Dictionaries</span> are created using curly braces {}</p>
+            <p>
+                Dictionaries have <span class="emph">keys</span> and <span class="emph">values</span>.
+            </p>
+        </div>
+        <pre data-id="dictionary-example"><code class="language-python" data-trim>
+            my_dictionary = {
+                'key': 'value'
+            }
+        </code></pre>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2>Dictionaries</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                <span class="emph">Dictionaries</span> (or <span class="emph">dicts</span>) let you store a collection with names
+                for the elements, instead of just indices.
+            </p>
+            <p><span class="emph">Dictionaries</span> are created using curly braces {}</p>
+            <p>
+                Dictionaries have <span class="emph">keys</span> and <span class="emph">values</span>.
+            </p>
+            <p>
+                Values can be any type. Keys have a few restrictions (mostly, they can't be lists).
+            </p>
+        </div>
+        <pre data-id="dictionary-example"><code class="language-python" data-trim>
+            my_dictionary = {
+                'key': 'value',
+                'my_list': [1, 2, 3],
+                1: 'one'
+            }
+        </code></pre>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Dictionaries</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                Syntax for accessing dictionary values looks very similar to list
+                indexing, except you use the key instead of the index.
+            </p>
+            <p>
+                This can be confusing if you use <span class="fake-code">int</span>s
+                as your keys; I'd recommend you avoid it if possible.
+            </p>
+        </div>
+        <pre data-id="dictionary-example"><code class="language-python" data-trim>
+            my_dictionary = {
+                'key': 'value',
+                'my_list': [1, 2, 3],
+                1: 'one'
+            }
+            print(my_dictionary['key']) # 'value'
+
+            # kinda confusing...looks like a list.
+            print(my_dictionary[1]) # 'one'
+        </code></pre>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Modifying collections</h2>
+    <p>
+        Up til now, we've been directly making our lists and dicts as we'd like
+        to use them. But typically you'll want to modify collections by adding
+        or removing elements or key/value pairs.
+    </p>
+</section>
+
+<section data-auto-animate="">
+    <h2>Modifying collections - Dicts</h2>
+    <div class="fit-two r-stretch">
+        <div>
+            Adding an element to a dict is easy. Just assign it like any
+            other variable.
+        </div>
+        <div>
+            <pre data-id="dictionary-example"><code class="language-python smaller" data-trim>
+                my_dictionary = {
+                    'key': 'value',
+                    'my_list': [1, 2, 3],
+                    1: 'one'
+                }
+                my_dictionary['hello'] = 'world!'
+                print(my_dictionary)
+                # result: 
+                {
+                    'key': 'value',
+                    'my_list': [1, 2, 3],
+                    1:'one',
+                    'hello': 'world!'
+                }
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Modifying collections - Dicts</h2>
+    <div class="fit-two r-stretch">
+        <div>
+            To delete an element, use the special <span class="fake-code">del</span> word.
+        </div>
+        <div>
+            <pre data-id="dictionary-example"><code class="language-python smaller" data-trim>
+                my_dictionary = {
+                    'key': 'value',
+                    'my_list': [1, 2, 3],
+                    1: 'one'
+                }
+                my_dictionary['hello'] = 'world!'
+                del my_dictionary['my_list']
+                print(my_dictionary)
+                # result: 
+                {
+                    'key': 'value',
+                    1: 'one'
+                    'hello': 'world!'
+                }
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Modifying collections - Lists</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                To add an element to a list, we'll use our first <span class="emph">method</span>
+            </p>
+            <p>
+                <span class="emph">Methods</span> are like functions, except they're "attatched" to objects.
+            </p>
+            <p>
+                <span class="emph">Methods</span> are called like this: <span class="fake-code">object.method(arguments)</span>
+            </p>
+        </div>
+        <div>
+            <pre data-id="dictionary-example"><code class="language-python smaller" data-trim>
+                my_list = [1, 2, 3, 4]
+                # print() is a function.
+                # It can be called directly
+                print(my_list) # [1, 2, 3, 4]
+
+                # append() is a method. It needs
+                # to be attached to a specific list.
+                #
+                # Note that you don't need to
+                # re-assign my_list.
+                # It is modified in place.
+                my_list.append(5)
+                print(my_list) # [1, 2, 3, 4, 5]
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Modifying collections - Lists</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                You can use <span class="fake-code">del</span> to remove a list
+                element with its index.
+            </p>
+        </div>
+        <div>
+            <pre data-id="dictionary-example"><code class="language-python smaller" data-trim>
+                my_list = [1, 2, 3, 4, 5]
+                print(my_list) # [1, 2, 3, 4, 5]
+
+                # remember that lists are
+                # zero-indexted!
+                del my_list[3]
+                print(my_list) # [1, 2, 3, 5]
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Exercise/homework</h2>
+    <div class="read-text">
+        <p>You run a bad produce stand. You have one each of the following fruits/veggies:</p>
+        <ul>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Carrot</li>
+            <li>Durian</li>
+        </ul>
+        <p>How might you represent your stock as a python object?</p>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2>Exercise/homework</h2>
+    <div class="read-text">
+        <p>
+            Someone buys your carrot. How can you remove it from your stock
+            object so that nobody tries to buy what you don't have?
+        </p>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2>Exercise/homework</h2>
+    <div class="read-text">
+        <p>
+            Congratulations! You've secured some venture capital funding!
+            You can now afford to stock more than one of each type of produce.
+        </p>
+        <p>
+            With your new capital, you buy three apples, ten bananas, six
+            carrots, and ninety-seven durians.
+        </p>
+        <p>
+            It would be nice to keep track of each item, and how many you have.
+            How would you change your stock object (if at all) to accomplish this?
+        </p>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2>Exercise/homework</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                Wow, your shop is doing really well now that you can have more than one
+                of everything. However, customers are annoyed that it takes you a long time to figure out
+                how much their order costs. 
+            </p>
+            <p>
+                It would be nice if you could access the price
+                using the name of the item instead of having to look them up in the table
+                to the right.
+            </p>
+            <p>
+                How might you make a python object to help you do this?
+            </p>
+        </div>
+        <table>
+            <thead>
+              <tr>
+                <th>Produce</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Apple</td>
+                <td>$0.99</td>
+              </tr>
+              <tr>
+                <td>Banana</td>
+                <td>$10.00</td>
+              </tr>
+              <tr>
+                <td>Carrot</td>
+                <td>$2.99<br></td>
+              </tr>
+              <tr>
+                <td>Durian<br></td>
+                <td>$0.10</td>
+              </tr>
+            </tbody>
+            </table>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Exercise/homework</h2>
+    <div class="read-text">
+        <p>Let's figure out how much money you've invested in this shop.</p>
+        <p>
+            Write some code which will check the stock of each produce item,
+            and then print out the total value for that type of produce! Then
+            print the sum of all your investments.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h1>My exercise answers. Do yours first!</h1>
+</section>
+
+<section>
+    <div class="r-stretch">
+        <pre><code class="language-python smaller" data-trim>
+            # new shop, one of each item
+            stock = ['apple', 'banana', 'carrot', 'durian']
+
+            # someone buys my carrot
+            del stock[2]
+            
+            # got that VC funding!
+            stock = {
+                'apple': 3,
+                'banana': 10,
+                'carrot': 6,
+                'durian': 97
+            }
+            
+            # keep track of prices, too
+            prices = {
+                'apple': 0.99,
+                'banana': 10.00,
+                'carrot': 2.99,
+                'durian': 0.10
+            }
+            
+            # find my market cap
+            total_apple_value = stock['apple'] * prices['apple']
+            total_banana_value = stock['banana'] * prices['banana']
+            total_carrot_value = stock['carrot'] * prices['carrot']
+            total_durian_value = stock['durian'] * prices['durian']
+            
+            print('Total apple value: ' + str(total_apple_value))
+            print('Total banana value: ' + str(total_banana_value))
+            print('Total carrot value: ' + str(total_carrot_value))
+            print('Total durian value: ' + str(total_durian_value))
+            # don't be afraid to google how to do something if it seems
+            # inefficient :)
+            print('Grand total value: ' + str(sum([
+                total_apple_value,
+                total_banana_value,
+                total_carrot_value,
+                total_durian_value
+            ])))
+        </code></pre>
+    </div>
+</section>
+
+</section>
+
 </div>
 </div>
 

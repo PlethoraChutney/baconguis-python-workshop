@@ -22,15 +22,32 @@ div.fit-one, div.fit-two, div.fit-three {
 }
 
 .fit-two img, .fit-two > video, .fit-two div {
-    max-width: 45%;
+    max-width: 50%;
     max-height: 40vh;
     vertical-align: middle;
 }
 
+div.fit-one.r-stretch>div, div.fit-two.r-stretch>div {
+    max-height: 100%;
+}
+
 .reveal .fit-two pre {
     max-height: 100%;
-    max-width: 48%;
+    max-width: 52%;
     vertical-align: middle;
+}
+
+.reveal div.r-stretch pre {
+    max-height: 100%;
+}
+
+.reveal div.r-stretch>pre {
+    height: 90%;
+    max-width: 100%;
+}
+
+.reveal code.smaller {
+    font-size: 16pt;
 }
 
 .reveal .fit-two>div>pre {
@@ -134,6 +151,10 @@ p.bottom-left {
 .reveal pre{
     max-width: 800px;
     max-height: none;
+}
+
+.reveal table td{
+    border-bottom: none;
 }
 
 span.emph {
