@@ -31,6 +31,12 @@ div.fit-one.r-stretch>div, div.fit-two.r-stretch>div {
     max-height: 100%;
 }
 
+.reveal .fit-one > pre {
+    width: 80vw;
+    max-width: max-content;
+    max-height: 60vh;
+}
+
 .reveal .fit-two pre {
     max-height: 100%;
     max-width: 52%;
@@ -38,12 +44,9 @@ div.fit-one.r-stretch>div, div.fit-two.r-stretch>div {
 }
 
 .reveal div.r-stretch pre {
-    max-height: 100%;
-}
-
-.reveal div.r-stretch>pre {
-    height: 90%;
-    max-width: 100%;
+    height: max-content;
+    max-height: 90%;
+    width: max-content;
 }
 
 .reveal code.smaller {

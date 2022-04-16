@@ -1356,6 +1356,268 @@ print(my_list[::2]) # [1, 3, 5]
 
 </section>
 
+<section>
+
+<section>
+    <h1>Day Five</h1>
+</section>
+
+<section>
+    <h2>Review last week's homework</h2>
+        
+    <div class="fit-one">
+        <pre><code class="language-python smaller" data-trim data-line-numbers="1-2|4-5|7-13|15-21|23-32|35-40">
+            # new shop, one of each item
+            stock = ['apple', 'banana', 'carrot', 'durian']
+
+            # someone buys my carrot
+            del stock[2]
+            
+            # got that VC funding!
+            stock = {
+                'apple': 3,
+                'banana': 10,
+                'carrot': 6,
+                'durian': 97
+            }
+            
+            # keep track of prices, too
+            prices = {
+                'apple': 0.99,
+                'banana': 10.00,
+                'carrot': 2.99,
+                'durian': 0.10
+            }
+            
+            # find my market cap
+            total_apple_value = stock['apple'] * prices['apple']
+            total_banana_value = stock['banana'] * prices['banana']
+            total_carrot_value = stock['carrot'] * prices['carrot']
+            total_durian_value = stock['durian'] * prices['durian']
+            
+            print('Total apple value: ' + str(total_apple_value))
+            print('Total banana value: ' + str(total_banana_value))
+            print('Total carrot value: ' + str(total_carrot_value))
+            print('Total durian value: ' + str(total_durian_value))
+            # don't be afraid to google how to do something if it seems
+            # inefficient :)
+            print('Grand total value: ' + str(sum([
+                total_apple_value,
+                total_banana_value,
+                total_carrot_value,
+                total_durian_value
+            ])))
+        </code></pre>
+    </div>
+</section>
+
+<section data-auto-animate>
+    <h2>This sucks</h2>
+    <div class="fit-one r-stretch">
+        <pre><code class="language-python" style="font-size: 12pt;" data-trim>
+            # find my market cap
+            total_apple_value = stock['apple'] * prices['apple']
+            total_banana_value = stock['banana'] * prices['banana']
+            total_carrot_value = stock['carrot'] * prices['carrot']
+            total_durian_value = stock['durian'] * prices['durian']
+            
+            print('Total apple value: ' + str(total_apple_value))
+            print('Total banana value: ' + str(total_banana_value))
+            print('Total carrot value: ' + str(total_carrot_value))
+            print('Total durian value: ' + str(total_durian_value))
+            
+            print('Grand total value: ' + str(sum([
+                total_apple_value,
+                total_banana_value,
+                total_carrot_value,
+                total_durian_value
+            ])))
+        </code></pre>
+    </div>
+</section>
+
+<section data-auto-animate>
+    <h2>This sucks</h2>
+    <div class="read-text">
+        <p>
+            Every time we add a new fruit, we need to add three lines of code,
+            which introduces a lot of potential for error.
+        </p>
+        <p>
+            If we want to start reporting a new value, we need to write a whole
+            new block of code, one line for each fruit.
+        </p>
+        <p>
+            Code like this is <span class="emph">hard to understand</span>
+            and <span class="emph">hard to maintain</span>.
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate>
+    <h2>This sucks</h2>
+    <div class="read-text">
+        <p>
+            What we want is to maintain a central list of fruits somewhere,
+            and then have a list of instructions to do for each fruit...
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h1>For loops</h1>
+</section>
+
+<section data-auto-animate="">
+    <h2>For loops</h2>
+    <div class="fit-two">
+        <div>
+            <p>Here's a for loop</p>
+        </div>
+        <div>
+            <pre>count_to_five.py<code class="language-python" data-trim>
+                for number in [1, 2, 3, 4, 5]:
+                    print(number)
+            </code></pre>
+            <pre>output<code data-trim>
+                1
+                2
+                3
+                4
+                5
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>For loops</h2>
+    
+    <pre>count_to_five.py<code class="language-python" data-trim>
+        for number in [1, 2, 3, 4, 5]:
+            print(number)
+    </code></pre>
+
+    <div>
+        <p>Anatomy:</p>
+        <ul>
+            <li>
+                <span class="fake-code">for</span> is a special python word
+                used to indicate you're starting a loop
+            </li>
+            <li>
+                <span class="fake-code">{var} in {iterable}</span> names the variable
+                which stores the current step through <span class="fake-code">{iterable}</span>.
+            </li>
+            <li>
+                Your loop must have a <span class="emph">colon and whitespace</span>! This
+                is how python defines what part of your script is part of the loop code
+                and what isn't!
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section data-auto-animate>
+    <h2>For loops</h2>
+    <div class="fit-two r-stretch">
+        <pre><code class="language-python smaller" data-trim>
+            print('I will print before the loop!')
+            counter = 0
+            for i in [1, 2, 3, 4, 5]:
+                print('Another step through the loop!')
+                counter = counter + i
+            print("Now we are done with the loop!")
+            print(counter)
+        </code></pre>
+        <pre><code class="smaller" data-trim>
+            I will print before the loop!
+            Another step through the loop!
+            Another step through the loop!
+            Another step through the loop!
+            Another step through the loop!
+            Another step through the loop!
+            Now we are done with the loop!
+            15
+        </code></pre>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>For loops</h2>
+    <div class="fit-two">
+        <div>
+            <p>So how could we fix our fruit stand code with a for loop?</p>
+        </div>
+        <div>
+            <pre>count_to_five.py<code class="language-python" style="font-size: 12pt;" data-trim>
+                # find my market cap
+                total_apple_value = stock['apple'] * prices['apple']
+                total_banana_value = stock['banana'] * prices['banana']
+                total_carrot_value = stock['carrot'] * prices['carrot']
+                total_durian_value = stock['durian'] * prices['durian']
+
+                print('Total apple value: ' + str(total_apple_value))
+                print('Total banana value: ' + str(total_banana_value))
+                print('Total carrot value: ' + str(total_carrot_value))
+                print('Total durian value: ' + str(total_durian_value))
+                print('Grand total value: ' + str(sum([
+                    total_apple_value,
+                    total_banana_value,
+                    total_carrot_value,
+                    total_durian_value
+                ])))
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>For loops</h2>
+    <div class="fit-one r-stretch">
+        <div>
+            <pre>count_to_five.py<code class="language-python" style="font-size: 16pt;" data-trim>
+                grand_total = 0
+                for fruit in ['apple', 'banana', 'carrot', 'durian']:
+                    fruit_total = stock[fruit] * prices[fruit]
+                    print('Total ' + fruit + ' value: ' + str(fruit_total))
+                    # var += 1 is equivalent to var = var + 1
+                    grand_total += fruit_total
+                print('Grand total value: ' + str(grand_total))
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>For loops</h2>
+    <div class="fit-one r-stretch">
+        <div>
+            <pre>count_to_five.py<code class="language-python" style="font-size: 16pt;" data-trim>
+                grand_total = 0
+                for fruit in ['apple', 'banana', 'carrot', 'durian']:
+                    fruit_total = stock[fruit] * prices[fruit]
+                    print('Total ' + fruit + ' value: ' + str(fruit_total))
+                    # var += 1 is equivalent to var = var + 1
+                    grand_total += fruit_total
+                print('Grand total value: ' + str(grand_total))
+            </code></pre>
+        </div>
+    </div>
+    <div>
+        <p>
+            For each fruit, we find the total and print it, then add the total.
+        </p>
+        <p>
+            If we start stocking a new type of fruit, we just need to add
+            a single element to the fruit list. No need to touch the loop
+            code at all!
+        </p>
+    </div>
+</section>
+
+</section>
+
 </div>
 </div>
 
