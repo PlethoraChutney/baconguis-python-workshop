@@ -1682,7 +1682,12 @@ print(my_list[::2]) # [1, 3, 5]
         <div>
             <pre>if_else.py<code class="language-python smaller" data-trim>
                 number_of_eggs = 2
-                if number_of_eggs > 0:
+                # you could also use
+                # if number_of_eggs > 0:
+                #     {code}
+                # but this works too
+                # because 0 is False
+                if number_of_eggs:
                     print('Making omelette...')
                     number_of_eggs -= 1
                 else:
