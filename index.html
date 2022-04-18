@@ -1673,14 +1673,14 @@ print(my_list[::2]) # [1, 3, 5]
     <div class="fit-two">
         <div>
             <p>
-                You can use any type in an if/else statement, since (almost) all types
+                You can use any type in an if/else statement, since all types
                 have a boolean evaluation. For instance, <span class="fake-code">0</span>
                 is <span class="fake-code">False</span> while <span class="fake-code">12</span>
                 would be <span class="fake-code">True</span>.
             </p>
         </div>
         <div>
-            <pre>if_else.py<code class="language-python smaller" data-trim>
+            <pre data-id="eggsample">if_else.py<code class="language-python smaller" data-trim>
                 number_of_eggs = 2
                 # you could also use
                 # if number_of_eggs > 0:
@@ -1697,6 +1697,439 @@ print(my_list[::2]) # [1, 3, 5]
                 Making omelette...
             </code></pre>
         </div>
+    </div>
+</section>
+<section data-auto-animate="">
+    <h2>Conditionals</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                You can use any type in an if/else statement, since all types
+                have a boolean evaluation. For instance, <span class="fake-code">0</span>
+                is <span class="fake-code">False</span> while <span class="fake-code">12</span>
+                would be <span class="fake-code">True</span>.
+            </p>
+        </div>
+        <div>
+            <pre data-id="eggsample">if_else.py<code class="language-python smaller" data-trim>
+                number_of_eggs = 0
+                if number_of_eggs:
+                    print('Making omelette...')
+                    number_of_eggs -= 1
+                else:
+                    print('We are out of eggs!')
+            </code></pre>
+            <pre>output<code data-trim language-shell>
+                We are out of eggs!
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Logical operators</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                <span class="emph">and</span> returns <span class="fake-code">True</span> if and only if
+                both inputs are <span class="fake-code">True</span>
+            </p>
+        </div>
+        <div>
+            <pre><code class="language-python" data-trim>
+                print(True and True) # True
+                print(True and False) # False
+                print(False and False) # False
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Logical operators</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                <span class="emph">or</span> returns <span class="fake-code">True</span>
+                if either input is <span class="fake-code">True</span>
+            </p>
+        </div>
+        <div>
+            <pre><code class="language-python" data-trim>
+                print(True and True) # True
+                print(True and False) # True
+                print(False and False) # False
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Logical operators</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                <span class="emph">or</span> returns <span class="fake-code">True</span>
+                if either input is <span class="fake-code">True</span>
+            </p>
+        </div>
+        <div>
+            <pre><code class="language-python" data-trim>
+                print(True and True) # True
+                print(True and False) # True
+                print(False and False) # False
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Logical operators</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                <span class="emph">not</span> returns <span class="fake-code">True</span>
+                if its input is <span class="fake-code">False</span>
+            </p>
+        </div>
+        <div>
+            <pre><code class="language-python" data-trim>
+                print(not True) # False
+                print(not False) # True
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Logical operators</h2>
+    <div>
+        <p>
+            Using <span class="emph">not</span>, <span class="emph">and</span>, and
+            <span class="emph">or</span> you can construct any logical sequence.
+        </p>
+    </div>
+    <div>
+        <pre><code class="language-python" data-trim>
+            # nand: False if both inputs True, otherwise True
+            not(a and b)
+            # nor: False if either input True
+            not(a or b)
+            # xor: True if one and only one input is True
+            (a or b) and not (a and b)
+        </code></pre>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Comparison</h2>
+    <div>
+        <p>
+            Use <span class="fake-code"><</span>, <span class="fake-code">></span>,
+            <span class="fake-code"><=</span>, <span class="fake-code">>=</span>,
+            <span class="fake-code">!=</span>,
+            and <span class="fake-code">==</span> to compare two objects.
+        </p>
+        <p>
+            Note that you must use <span class="emph">two equals signs</span> to compare!
+            Otherwise you're performing an assignment!
+        </p>
+    </div>
+    <div>
+        <pre><code class="language-python" data-trim>
+              1 <  2   # True
+              1 >  2   # False
+              1 <  1   # False
+              1 <= 1   # True
+              1 == 1   # True
+              1 != 2   # True
+            '1' == 1   # False
+            '1' == '1' # True
+
+        </code></pre>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>While loop</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                Remember this example? Now that you know all about boolean operators,
+                it would be nice if you could keep making omelettes until you ran out
+                of eggs...
+            </p>
+        </div>
+        <div>
+            <pre data-id="eggsample">while_loop.py<code class="language-python smaller" data-trim>
+                number_of_eggs = 2
+                if number_of_eggs:
+                    print('Making omelette...')
+                    number_of_eggs -= 1
+                else:
+                    print('We are out of eggs!')
+            </code></pre>
+            <pre>output<code data-trim language-shell>
+                Making omelette...
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>While loop</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                <span class="emph">While loops</span> continue to loop until their
+                condition is <span class="fake-code">True</span>.
+            </p>
+        </div>
+        <div>
+            <pre data-id="eggsample">while_loop.py<code class="language-python smaller" data-trim>
+                number_of_eggs = 2
+                while number_of_eggs:
+                    print('Making omelette...')
+                    number_of_eggs -= 1
+                print('We are out of eggs!')
+            </code></pre>
+            <pre>output<code data-trim language-shell>
+                Making omelette...
+                Making omelette...
+                We are out of eggs!
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>While loop</h2>
+    <div class="fit-two">
+        <div>
+            <p>
+                If the condition is never <span class="fake-code">True</span>,
+                the loop will never run.
+            </p>
+        </div>
+        <div>
+            <pre data-id="eggsample">while_loop.py<code class="language-python smaller" data-trim>
+                number_of_eggs = 0
+                while number_of_eggs:
+                    print('Making omelette...')
+                    number_of_eggs -= 1
+                print('We are out of eggs!')
+            </code></pre>
+            <pre>output<code data-trim language-shell>
+                We are out of eggs!
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Homework/exercises</h2>
+    <div class="read-text">
+        <p>
+            Your fruit stand did so well you've decided you're going to try to make
+            it as a chef. It's your first day, and there are already a few customers
+            in the restaurant!
+        </p>
+        <p>
+            You should probably write some code while they're being seated to make sure
+            everything runs smoothly...
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Homework/exercises</h2>
+    <div class="read-text">
+        <p>
+            Let's first make an object we can use to store the customers. You
+            have the following customers in the restaurant right now:
+        </p>
+        <ul>
+            <li>Jeff Rosenstock</li>
+            <li>Phoebe Bridgers</li>
+            <li>Stefan Babcock</li>
+            <li>Maria Maita-Keppeler</li>
+            <li>Rod MacKinnon</li>
+            <li>Marie Curie (ghost)</li>
+        </ul>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Homework/exercises</h2>
+    <div>
+        <p>
+            Since it's a new restaurant, we can assume that each customer
+            will pick randomly from the menu (nobody know's what's good,
+            and your staff will say everything is equally good).
+        </p>
+        <p>
+            Here's a bit of code to get a random number generator function,
+            <span class="fake-code">randint()</span>. It's okay
+            if you don't understand the first line yet:
+        </p>
+    </div>
+    <pre><code class="language-python" data-trim>
+        from random import randint
+
+        # this returns a random integer
+        # from 0 to 5, inclusive
+        randint(0, 5)
+    </code></pre>
+</section>
+
+<section data-auto-animate="">
+    <h2>Homework/exercises</h2>
+    <div class="read-text">
+        <p>
+            Here's your menu:
+        </p>
+        <table style="background-color: #FFFFFF66; padding: 5px;">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Skaghetti</td>
+                <td>$13.12</td>
+              </tr>
+              <tr>
+                <td>(Sad and) Hot Dish</td>
+                <td>$14.99<br></td>
+              </tr>
+              <tr>
+                <td>Robot Writes a Menu</td>
+                <td>$21.99</td>
+              </tr>
+              <tr>
+                <td>Road Dog</td>
+                <td>$7.99</td>
+              </tr>
+              <tr>
+                <td>French Fries (extra salty)</td>
+                <td>$6.99</td>
+              </tr>
+              <tr>
+                <td>Radium (do not eat)</td>
+                <td>$10.99</td>
+              </tr>
+            </tbody>
+        </table>
+        <p>
+            Create an object to store this information!
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Homework/exercises</h2>
+    <div class="read-text">
+        <p>
+            OK, the servers are back with the orders! To make things smoother,
+            you have guests pay up front when they order.
+        </p>
+        <p>
+            For each guest, randomly pick an order. Then print its price.
+            But, <span class="emph">if anyone except Marie Curie's ghost picked Radium</span>,
+            have them pick another order instead of printing the price!
+        </p>
+        <p id="menu-exercise-hint">
+            Show hint
+        </p>
+        <style>
+            p#menu-exercise-hint {
+                font-style: italic;
+                color: #00000066;
+                cursor: pointer;
+            }
+        </style>
+        <script>
+            const menuHint = document.getElementById('menu-exercise-hint');
+            menuHint.addEventListener('click', () => {
+                menuHint.textContent = "You can get a list of a dictionary's keys using the method dictionary.keys() and converting it to a list."
+            })
+        </script>
+    </div>
+</section>
+
+<section>
+    <h1>My exercise answers. Do yours first!</h1>
+</section>
+
+<section>
+    <div class="r-stretch">
+        <pre><code class="language-python" style="font-size: 12pt; height: 60vh; max-height: unset;" data-trim>
+            # store guests in a list
+            guests = [
+                'Jeff Rosenstock',
+                'Phoebe Bridgers',
+                'Stefan Babcock',
+                'Maria Maita-Keppeler',
+                'Rod MacKinnon',
+                'Marie Curie (ghost)'
+            ]
+            
+            # import the randint function
+            from random import randint
+            
+            # store the menu in a dictionary
+            menu = {
+            'Skaghetti': 13.12,
+            '(Sad and) Hot Dish': 14.99,
+            'Robot Writes a Menu': 21.99,
+            'Road Dog': 7.99,
+            'French Fries (extra salty)': 6.99,
+            'Radium (do not eat)': 10.99
+            }
+            
+            # make list of menu items for convenience
+            menu_items = list(menu.keys())
+            
+            # for each guest:
+            for guest in guests:
+            
+                # take their order
+                # subtract 1 from length becasue randint is inclusive,
+                # and len gives the number of elements, not the index
+                # of the last element
+                order = menu_items[randint(0, len(menu_items) - 1)]
+            
+                # if a living person ordered radium, kindly ask them to pick
+                # something else
+                while guest != 'Marie Curie (ghost)' and order == 'Radium (do not eat)':
+                    print(guest + ', please pick another order.')
+                    order = menu_items[randint(0, len(menu_items) - 1)]
+            
+                print(guest + ' ordered ' + order + ' which costs $' + str(menu[order]))
+        </code></pre>
+    </div>
+</section>
+
+<section>
+    <p>
+        Note that Stefan tried to order Radium multiple times. That's why we need
+        to use a while loop and not just a simple if/else check!
+    </p>
+    <div class="">
+        <pre><code class="language-shell" style="font-size: 12pt;" data-trim>
+Powershell> python .\practice.py
+Jeff Rosenstock ordered Road Dog which costs $7.99
+Phoebe Bridgers ordered Skaghetti which costs $13.12
+Stefan Babcock, please pick another order.
+Stefan Babcock, please pick another order.
+Stefan Babcock, please pick another order.
+Stefan Babcock ordered Robot Writes a Menu which costs $21.99
+Maria Maita-Keppeler ordered Skaghetti which costs $13.12
+Rod MacKinnon ordered Road Dog which costs $7.99
+Marie Curie (ghost) ordered Skaghetti which costs $13.12
+        </code></pre>
     </div>
 </section>
 

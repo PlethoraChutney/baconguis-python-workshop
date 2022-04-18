@@ -49,6 +49,10 @@ div.fit-one.r-stretch>div, div.fit-two.r-stretch>div {
     width: max-content;
 }
 
+.reveal code {
+    font-variant-ligatures: none;
+}
+
 .reveal code.smaller {
     font-size: 16pt;
 }
@@ -108,7 +112,7 @@ div.read-text {
 }
 
 div.read-text > p {
-    max-width: 50%;
+    max-width: 66%;
 }
 
 img.bordered, video.bordered, iframe.bordered {
@@ -167,6 +171,7 @@ span.emph {
 
 span.fake-code {
     font-family: 'JetBrains Mono', monospace;
+    font-variant-ligatures: none;
     background-color: white;
 }
 
