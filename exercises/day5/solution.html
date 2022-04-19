@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/exercises/static/exercises.css">
+    <title>Solutions - Day 5</title>
+</head>
+<body>
+    <div class="solution">
+        <pre><code class="language-python">
+# store guests in a list
+guests = [
+    'Jeff Rosenstock',
+    'Phoebe Bridgers',
+    'Stefan Babcock',
+    'Maria Maita-Keppeler',
+    'Rod MacKinnon',
+    'Marie Curie (ghost)'
+]
+
+# import the randint function
+from random import randint
+
+# store the menu in a dictionary
+#
+# Same rationale as last week --- the guests are independent,
+# no other data associated with them. However, there's a natural
+# association between an item and its price. Hence, a key: value
+# pair.
+menu = {
+'Skaghetti': 13.12,
+'(Sad and) Hot Dish': 14.99,
+'Robot Writes a Menu': 21.99,
+'Road Dog': 7.99,
+'French Fries (extra salty)': 6.99,
+'Radium (do not eat)': 10.99
+}
+
+# make list of menu items for convenience
+#
+# Bonus Info: Don't worry if it's confusing ----------------------
+# |
+# | menu.keys() returns a "dict_keys" object, which is a type of
+# | generator, and essentially acts as a "set", another type we haven't
+# | talked about.
+# | 
+# | However, unlike a real set, dict_keys objects cannot
+# | be accessed by index, so we have to convert it to a list in order
+# | to pick a random menu item.
+# | 
+# | If we just wanted to iterate over the menu items, we could
+# | use menu.keys() as-is. Additionally, in practice, if you try
+# | to iterate over a dictionary you'll iterate over the keys by default,
+# | so list(menu) would work. But it's best to be explicit when teaching.
+# | 
+# End bonus info --------------------------------------------------
+
+menu_items = list(menu.keys())
+
+# for each guest:
+# 
+# Reminder: this means that through every loop, the current guest
+# we're "thinking about" will be stored in the `guest` variable.
+for guest in guests:
+
+    # take their order
+    # 
+    # subtract 1 from length becasue randint is inclusive,
+    # and len gives the number of elements, not the index
+    # of the last element. Zero indexing!
+    order = menu_items[randint(0, len(menu_items) - 1)]
+
+    # if a living person ordered radium, kindly ask them to pick
+    # something else
+    # 
+    # I use a while loop here because we're picking randomly. That
+    # way if a non-ghost picks radium twice or more in a row we'll
+    # catch it. Using an if: statement would only catch it the first
+    # time.
+    while guest != 'Marie Curie (ghost)' and order == 'Radium (do not eat)':
+        print(guest + ', please pick another order.')
+        order = menu_items[randint(0, len(menu_items) - 1)]
+
+    # then we print the name, order, and price.
+    print(guest + ' ordered ' + order + ' which costs $' + str(menu[order]))
+
+# extra credit: what would the output be if we had put the print()
+# statement here, outside the loop, instead of in the loop?
+        </code></pre>
+    </div>
+</body>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/tokyo-night-dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</html>

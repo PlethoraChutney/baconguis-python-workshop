@@ -14,6 +14,17 @@ code {
     font-variant-ligatures: none;
 }
 
+span.emph {
+    color: #3788BE;
+    font-style: italic;
+}
+
+span.fake-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-ligatures: none;
+    background-color: white;
+}
+
 div.page-view {
     height: 100%;
     display: grid;

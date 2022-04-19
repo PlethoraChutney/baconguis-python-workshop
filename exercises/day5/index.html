@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises - Day 5</title>
+    <link rel="stylesheet" href="/exercises/static/exercises.css">
+</head>
+<body>
+    <div class="page-view">
+        <div class="header">
+            <h1>Exercises - Day 5</h1>
+            <h2>Control Flow</h2>
+        </div>
+        <div class="exercise">
+            <section data-auto-animate="">
+                <h2>Homework/exercises</h2>
+                <div class="read-text">
+                    <p>
+                        Your fruit stand did so well you've decided you're going to try to make
+                        it as a chef. It's your first day, and there are already a few customers
+                        in the restaurant!
+                    </p>
+                    <p>
+                        You should probably write some code while they're being seated to make sure
+                        everything runs smoothly...
+                    </p>
+                </div>
+            </section>
+            
+            <section data-auto-animate="">
+                <h2>Homework/exercises</h2>
+                <div class="read-text">
+                    <p>
+                        Let's first make an object we can use to store the customers. You
+                        have the following customers in the restaurant right now:
+                    </p>
+                    <ul>
+                        <li>Jeff Rosenstock</li>
+                        <li>Phoebe Bridgers</li>
+                        <li>Stefan Babcock</li>
+                        <li>Maria Maita-Keppeler</li>
+                        <li>Rod MacKinnon</li>
+                        <li>Marie Curie (ghost)</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section data-auto-animate="">
+                <h2>Homework/exercises</h2>
+                <div>
+                    <p>
+                        Since it's a new restaurant, we can assume that each customer
+                        will pick randomly from the menu (nobody know's what's good,
+                        and your staff will say everything is equally good).
+                    </p>
+                    <p>
+                        Here's a bit of code to get a random number generator function,
+                        <span class="fake-code">randint()</span>. It's okay
+                        if you don't understand the first line yet:
+                    </p>
+                </div>
+                <pre style="width: max-content; margin: auto;"><code class="language-python" data-trim>
+from random import randint
+
+# this returns a random integer from 0 to 5, inclusive
+randint(0, 5)
+                </code></pre>
+            </section>
+            
+            <section data-auto-animate="">
+                <h2>Homework/exercises</h2>
+                <div class="read-text">
+                    <p>
+                        Here's your menu:
+                    </p>
+                    <table style="background-color: #FFFFFF66; padding: 5px;">
+                        <thead>
+                          <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Skaghetti</td>
+                            <td>$13.12</td>
+                          </tr>
+                          <tr>
+                            <td>(Sad and) Hot Dish</td>
+                            <td>$14.99<br></td>
+                          </tr>
+                          <tr>
+                            <td>Robot Writes a Menu</td>
+                            <td>$21.99</td>
+                          </tr>
+                          <tr>
+                            <td>Road Dog</td>
+                            <td>$7.99</td>
+                          </tr>
+                          <tr>
+                            <td>French Fries (extra salty)</td>
+                            <td>$6.99</td>
+                          </tr>
+                          <tr>
+                            <td>Radium (do not eat)</td>
+                            <td>$10.99</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                    <p>
+                        Create an object to store this information!
+                    </p>
+                </div>
+            </section>
+            
+            <section data-auto-animate="">
+                <h2>Homework/exercises</h2>
+                <div class="read-text">
+                    <p>
+                        OK, the servers are back with the orders! To make things smoother,
+                        you have guests pay up front when they order.
+                    </p>
+                    <p>
+                        For each guest, randomly pick an order. Then print its price.
+                        But, <span class="emph">if anyone except Marie Curie's ghost picked Radium</span>,
+                        have them pick another order instead of printing the price!
+                    </p>
+                    <p id="menu-exercise-hint">
+                        Show hint
+                    </p>
+                    <style>
+                        p#menu-exercise-hint {
+                            font-style: italic;
+                            color: #00000066;
+                            cursor: pointer;
+                        }
+                    </style>
+                    <script>
+                        const menuHint = document.getElementById('menu-exercise-hint');
+                        menuHint.addEventListener('click', () => {
+                            menuHint.textContent = "You can get a list of a dictionary's keys using the method dictionary.keys() and converting it to a list."
+                        })
+                    </script>
+                </div>
+            </section>
+        </div>
+        <div class="solution-holder">
+            <a href="day5/solution.html">View solution</a>
+        </div>
+    </div>
+</body>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/tokyo-night-dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</html>
