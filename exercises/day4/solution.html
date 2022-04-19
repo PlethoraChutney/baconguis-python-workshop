@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/exercises/static/exercises.css">
+    <title>Solutions - Day 4</title>
+</head>
+<body>
+    <div class="solution">
+        <pre><code class="language-python">
+# new shop, one of each item
+#
+# I use a list here because I'm just keeping track of
+# a...list of things. For all I care there could be any
+# fruits in here, there's no other data associated with them.
+stock = ['apple', 'banana', 'carrot', 'durian']
+
+# someone buys my carrot
+#
+# Remember lists are zero-indexed. So stock[2] is 'carrot'.
+del stock[2]
+
+# got that VC funding!
+#
+# I use a dictionary here because the stock "goes with"
+# the item it's tracking. There's a logical relationship
+# between key and value.
+stock = {
+    'apple': 3,
+    'banana': 10,
+    'carrot': 6,
+    'durian': 97
+}
+
+# keep track of prices, too
+#
+# Same thing here --- logical relationship between key: value
+prices = {
+    'apple': 0.99,
+    'banana': 10.00,
+    'carrot': 2.99,
+    'durian': 0.10
+}
+
+# find my market cap
+# 
+# Here's the actual calculation. If this feels inefficient,
+# you'll enjoy Day 5 :)
+total_apple_value = stock['apple'] * prices['apple']
+total_banana_value = stock['banana'] * prices['banana']
+total_carrot_value = stock['carrot'] * prices['carrot']
+total_durian_value = stock['durian'] * prices['durian']
+
+print('Total apple value: ' + str(total_apple_value))
+print('Total banana value: ' + str(total_banana_value))
+print('Total carrot value: ' + str(total_carrot_value))
+print('Total durian value: ' + str(total_durian_value))
+
+# I'm using a function I haven't explicitly taught you here,
+# sum(). It adds all the elements of an iterable and returns
+# the sum.
+#
+# You could of course add them manually, as well, but if you
+# ever find yourself doing something that feels inefficient
+# you can always give it a quick google and see if there's a
+# better way!
+print('Grand total value: ' + str(sum([
+    total_apple_value,
+    total_banana_value,
+    total_carrot_value,
+    total_durian_value
+])))
+
+# extra credit:
+#
+# this is a maybe more useful way of keeping track of stock and
+# price. See if you can figure out why it might be useful to group
+# things this way as opposed to in two separate dictionaries.
+
+stock = {
+    'apple': {
+        'price': 0.99,
+        'in_stock': 3
+    },
+    'banana': {
+        'price': 10.00,
+        'in_stock': 10
+    },
+    'carrot': {
+        'price': 2.99,
+        'in_stock': 6
+    },
+    'durian': {
+        'price': 0.10,
+        'in_stock': 97
+    }
+}
+
+        </code></pre>
+    </div>
+</body>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/tokyo-night-dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</html>

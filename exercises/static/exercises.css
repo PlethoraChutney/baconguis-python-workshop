@@ -1,3 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Poppins&family=Zilla+Slab:wght@500&display=swap");
+
 body {
     background-color: #FAF4D9;
+    font-family: Poppins, sans-serif;
+    font-size: 16pt;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+code {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-ligatures: none;
+}
+
+div.page-view {
+    height: 100%;
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    grid-template-areas: "header" "exercises" "footer";
+    gap: 2rem;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Zilla Slab", sans-serif;
+    color: #d26a5dff;
+}
+
+div.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: header;
+}
+
+div.header > h1, div.header > h2 {
+    margin: 0;
+}
+
+div.exercise {
+    max-width: 1000px;
+    grid-area: exercises;
+    margin: auto;
+    overflow: auto;
+    height: 100%;
+    padding: 0 1.5rem;
+}
+
+div.exercise > section > h2 {
+    display: none;
+    visibility: hidden;
+}
+
+ul {
+    width: max-content;
+    margin: auto;
+}
+
+section {
+    border-bottom: 1px solid black;
+}
+
+table {
+    background-color: #FFFFFF66;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+div.solution-holder {
+    grid-area: footer;
+    margin: auto;
+}
+
+/* solutions */
+
+.solution {
+    font-size: 12pt;
+}
+
+.solution pre {
+    width: max-content;
+    max-width: 90%;
+    height: max-content;
+    margin: auto;
+    padding: 0;
 }
