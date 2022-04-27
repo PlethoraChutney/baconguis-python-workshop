@@ -2118,6 +2118,393 @@ Marie Curie (ghost) ordered Skaghetti which costs $13.12
 
 </section>
 
+<section>
+<section>
+    <h1>Functions</h1>
+</section>
+
+<section>
+    <h2>
+        <a href="https://workshop.posertinlab.com/exercises/day5">
+            Last week's exercise
+        </a>
+    </h2>
+</section>
+
+<section data-auto-animate="">
+    <h2>Before we move on from loops...</h2>
+    <pre><code data-trim class="language-python">
+        for i in range(3):
+            print(i)
+    </code></pre>
+    <pre><code data-trim class="language-python">
+        0
+        1
+        2
+    </code></pre>
+</section>
+
+<section data-auto-animate="">
+    <h2>Before we move on from loops...</h2>
+    <pre><code data-trim class="language-python">
+        for i in range(3, 6):
+            print(i)
+    </code></pre>
+    <pre><code data-trim class="language-python">
+        3
+        4
+        5
+    </code></pre>
+</section>
+
+<section data-auto-animate="">
+    <h2>Before we move on from loops...</h2>
+    <pre><code data-trim class="language-python">
+        for i in range(3, 10, 3):
+            print(i)
+    </code></pre>
+    <pre><code data-trim class="language-python">
+        3
+        6
+        9
+    </code></pre>
+    <p>If this looks familiar, you're right. It's very similar to the syntax for list slices!</p>
+</section>
+
+<section data-auto-animate="">
+    <h2>Why use a function?</h2>
+    <div class="read-text">
+        <p>
+            At this point, you could write whatever you need with
+            loops, conditionals, and variables.
+        </p>
+        <p>
+            However, there are two problems with that approach:
+        </p>
+        <ol>
+            <li>Your code gets harder to understand the longer it is</li>
+            <li>You may want to re-use sections of code</li>
+        </ol>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Why use a function?</h2>
+    <div class="read-text">
+        <p>
+            If you want to re-use code, you have to copy-paste it
+            all down to where you want to use it.
+        </p>
+        <p>
+            What happens when you need to modify it?
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Why use a function?</h2>
+    <div class="fit-one">
+        <pre data-id="fav-food-code"><code class="language-python smaller" data-trim="">
+            from random import choice
+
+            favorite_foods = {
+                'Adam': 'Apple',
+                'Beatrice': 'Banana',
+                'Charles': 'Churro',
+                'Danielle': 'Dark Chocolate',
+                'Edward': 'Elephant Meat',
+                'Frank': 'Fennel'
+            }
+            
+            for guest in favorite_foods:
+                print('Ah, hello ' + guest)
+                print('Your favorite food is ' + favorite_foods[guest])
+            
+            # now all the guests try all the foods and may pick a new favorite
+            for guest in favorite_foods:
+                favorite_foods[guest] = choice(list(favorite_foods.values()))
+            
+            for guest in favorite_foods:
+                print('Ah, hello ' + guest)
+                print('Your favorite food is ' + favorite_foods[guest])
+        </code></pre>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Why use a function?</h2>
+    <div class="fit-one">
+        <pre data-id="fav-food-code"><code class="language-python smaller" data-trim="">
+            from random import choice
+
+            favorite_foods = {
+                'Adam': 'Apple',
+                'Beatrice': 'Banana',
+                'Charles': 'Churro',
+                'Danielle': 'Dark Chocolate',
+                'Edward': 'Elephant Meat',
+                'Frank': 'Fennel'
+            }
+            
+            for guest in favorite_foods:
+                print('Ah, hello ' + guest)
+                print('Your favorite food is ' + favorite_foods[guest])
+                print('\n')
+            
+            # now all the guests try all the foods and may pick a new favorite
+            for guest in favorite_foods:
+                favorite_foods[guest] = choice(list(favorite_foods.values()))
+            
+            for guest in favorite_foods:
+                print('Ah, hello ' + guest)
+                print('Your favorite food is ' + favorite_foods[guest])
+                print('\n')
+        </code></pre>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Why use a function?</h2>
+    <div class="read-text">
+        <p>
+            Just like memorable variable names, functions let you remember/figure out
+            what's going on
+        </p>
+        <p>
+            Functions centralize code for re-use.
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Anatomy of a function</h2>
+    <pre>learn_functions.py<code class="language-python" data-trim>
+        def print_twice(argument):
+            # whitespace is important!
+            argument = str(argument)
+            print_me = argument + ' ' + argument
+            print(print_me)
+    </code></pre>
+
+</section>
+
+<section data-auto-animate="">
+    <h2>Anatomy of a function</h2>
+    <pre>learn_functions.py<code class="language-python" data-trim>
+        def print_twice(argument):
+            # whitespace is important!
+            argument = str(argument)
+            print_me = argument + ' ' + argument
+            print(print_me)
+    
+        print_twice('hello')
+        print_twice('world')
+        print_twice(1)
+    </code></pre>
+
+    <div class="read-text">
+        <p>What do you think will be printed to the terminal as a result of this script?</p>
+    </div>
+
+</section>
+
+<section data-auto-animate="">
+    <h2>Anatomy of a function</h2>
+    <pre>learn_functions.py<code class="language-python" data-trim>
+        def print_twice(argument):
+            # whitespace is important!
+            argument = str(argument)
+            print_me = argument + ' ' + argument
+            print(print_me)
+    
+        print_twice('hello')
+        print_twice('world')
+        print_twice(1)
+    </code></pre>
+
+    <pre><code class="language-shell" data-trim>
+        > python learn_functions.py
+        hello hello
+        world world
+        1 1
+    </code></pre>
+
+    <div class="read-text">
+        <p>
+            Note that we didn't have to remember to convert
+            <span class="fake-code">1</span> to <span class="fake-code">'1'</span>.
+            We wrote that into the function!
+        </p>
+    </div>
+
+</section>
+
+<section data-auto-animate="">
+    <h2>Exercise</h2>
+    <div class="read-text">
+        <p>
+            Write a function which takes an <span class="emph">integer</span>
+            and a <span class="emph">string</span> as inputs and prints the
+            string a number of times equal to the integer.
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Exercise</h2>
+    <div class="read-text">
+        <p>
+            Write a function which takes an <span class="emph">integer</span>
+            and a <span class="emph">string</span> as inputs and prints the
+            string a number of times equal to the integer.
+        </p>
+    </div>
+    <pre><code class="language-python" data-trim="">
+        def repeat_print(string_to_print, times_to_print):
+            if times_to_print < 0:
+                print("Can't print fewer than 0 times...")
+            else:
+                for i in range(times_to_print):
+                    print(string_to_print)
+    </code></pre>
+</section>
+
+<section data-auto-animate="">
+    <h2>Scope</h2>
+    <pre><code class="language-python" data-trim>
+        def count_to_ten():
+            current_number = 0
+            while current_number < 10:
+                current_number += 1
+            print(current_number)
+    
+        count_to_ten()
+        print(current_number)
+    </code></pre>
+</section>
+
+<section data-auto-animate="">
+    <h2>Scope</h2>
+    <pre style="margin-bottom: 0;">practice.py<code class="language-python smaller" data-trim>
+        def count_to_ten():
+            current_number = 0
+            while current_number < 10:
+                current_number += 1
+            print(current_number)
+    
+        count_to_ten()
+        print(current_number)
+    </code></pre>
+    <pre><code class="language-shell smaller" data-trim>
+    > python .\practice.py
+    10
+    Traceback (most recent call last):
+    File "C:\Users\rich\Documents\python-workshop\practice.py", line 8, in &lt;module&gt;
+    print(current_number)
+    NameError: name 'current_number' is not defined
+    </code></pre>
+</section>
+
+<section data-auto-animate="">
+    <h2>Scope</h2>
+    <div class="read-text">
+        <p>
+            Variables defined inside a function
+            are said to belong to the <span class="emph">local scope</span>
+            of that function.
+            They are not accessible outside that function.
+        </p>
+        <p>
+            Variables defined in the main body of a script are
+            <span class="emph" style="color: #FFAF40;">global</span>,
+            and can be accessed from any scope.
+        </p>
+        <p>
+            If you create a <span class="emph">local</span> variable with the same name
+            as a <span class="emph" style="color: #FFAF40;">global</span> variable,
+            python will treat them as
+            separate objects. The <span class="emph">local</span> one will only be
+            available in its own scope.
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Scope</h2>
+    <pre style="margin-bottom: 0;">practice.py<code class="language-python smaller" data-trim>
+        x = 10
+        y = 3
+        def set_x(number):
+            x = number
+            print('Inside the function, x = ' + str(x))
+            print('We can also access y in the function: ' + str(y))
+        
+        print('Before the function, x = ' + str(x))
+        set_x(4)
+        print('Back in the global scope, x is still ' + str(x))
+    </code></pre>
+    <pre><code class="language-shell smaller" data-trim>
+        > python .\practice.py
+        Before the function, x = 10
+        Inside the function, x = 4
+        We can also access y in the function: 3
+        Back in the global scope, x is still 10
+    </code></pre>
+</section>
+
+<section data-auto-animate="">
+    <h2>Scope</h2>
+    <div class="read-text">
+        <p>
+            If functions can only modify things in their own local scope,
+            how do we use them to change the state of our script?
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Returning Values</h2>
+    <pre><code class="language-python" data-trim>
+        def square_number(number):
+            return number ** 2
+
+        print(square_number(2))
+    </code></pre>
+    <pre><code class="language-shell" data-trim>
+        4
+    </code></pre>
+    <div class="read-text">
+        <p>
+            <span class="fake-code">return</span> is a special word which tells python
+            what result from your function should be given back when it is called.
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Returning Values</h2>
+    <pre><code class="language-python" data-trim>
+        def square_number(number):
+            return number ** 2
+
+            print('Now we can do some real math')
+            print(P == NP)
+
+        print(square_number(2))
+    </code></pre>
+    <pre><code class="language-shell" data-trim>
+        4
+    </code></pre>
+    <div class="read-text">
+        <p>
+            Once a function <span class="fake-code">return</span>s a value,
+            <span class="emph">it will stop running</span>!
+        </p>
+    </div>
+</section>
+
+</section>
+
 </div>
 </div>
 
