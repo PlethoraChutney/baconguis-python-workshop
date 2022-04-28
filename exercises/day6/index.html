@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises - Day 5</title>
+    <link rel="stylesheet" href="/exercises/static/exercises.css">
+</head>
+<body>
+    <div class="page-view">
+        <div class="header">
+            <h1>Exercises - Day 5</h1>
+            <h2>Control Flow</h2>
+        </div>
+        <section data-auto-animate>
+            <h2>Exercises</h2>
+            <div class="read-text">
+                <p>
+                    Wow, your restaurant is a hit! You decide it's time to expand again, opening
+                    a few restaurants across the city.
+                </p>
+                <p>
+                    Each restaurant will have its own menu. Every night, guests will pick one of the
+                    restaurants to go to and order a dish.
+                </p>
+            </div>
+        </section>
+        
+        <section data-auto-animate>
+            <h2>Exercises</h2>
+            <p>
+                Here are some menus for you to copy-paste for your restaurants:
+            </p>
+            <div class="fit-one">
+                <pre><code class="language-python" data-trim>
+                    original_menu = {
+                        'Skaghetti': 13.12,
+                        '(Sad and) Hot Dish': 14.99,
+                        'Robot Writes a Menu': 21.99,
+                        'Road Dog': 7.99,
+                        'French Fries (extra salty)': 6.99
+                    }
+                
+                    sushi_menu = {
+                        'Tuna Roll': 17.00,
+                        'Softshell Crab Roll': 18.00,
+                        'Shrimp Tempura Roll': 18.00,
+                        'Dragon Roll': 19.00,
+                        'Ahi Tuna Nigiri': 4.00,
+                        'Eel Nigiri': 5.00,
+                        'Mackerel Nigiri': 4.00,
+                        'Squid Nigiri': 4.00
+                    }
+                
+                    burger_menu = {
+                        'C Bar Burger': 13.00,
+                        'Chef Burger': 13.00,
+                        'Veggie Burger': 14.00,
+                        'Bacon Blue Cheese Burger': 12.00,
+                        'Cheese Burger': 8.00,
+                        'Fries': 3.00,
+                        'Tots': 4.00
+                    }
+                
+                    thai_menu = {
+                        'Tom Yum Soup': 10.00,
+                        'Boss Special': 15.50,
+                        'Pad Kra Prao': 13.00,
+                        'Gang Mussa-Muhn': 14.00,
+                        'Pad Thai': 13.50,
+                        'Pad See-Ew': 13.50,
+                        'Garlic Pepper Tofu': 13.00,
+                        'Thai Street Fried Rice': 14.00,
+                        'Thai Iced Tea': 4.50
+                    }
+                </code></pre>
+            </div>
+        </section>
+        
+        <section data-auto-animate>
+            <h2>Exercises</h2>
+            <div class="read-text">
+                <p>
+                    <span class="emph">Write a function</span> which takes a guests's name
+                    and a restaurant's menu and returns the guest's name and their selection
+                    from the menu.
+                </p>
+            </div>
+        </section>
+        
+        <section data-auto-animate>
+            <h2>Exercises</h2>
+            <p>
+                Now create a list ten guests. Each guest should be represented by a
+                dictionary with their name, the restaurant they want to go to, and
+                their order from that restaurant (this will be empty at first). For
+                instance:
+            </p>
+            <pre><code class="language-python" data-trim>
+                guests = [
+                    {
+                        'name': 'Rich Posert',
+                        'restaurant': 'thai',
+                        'order': ''
+                    },
+                    {
+                        'name': 'Isabelle Baconguis',
+                        'restaurant': 'sushi',
+                        'order': ''
+                    }
+                ]
+            </code></pre>
+        </section>
+        
+        <section data-auto-animate>
+            <h2>Exercises</h2>
+            <p>
+                Finally, write a function which takes your guest list as an input,
+                picks an order for each guest (you can use the ordering function
+                you wrote earlier), and returns your total income from all ten guests.
+            </p>
+        </section>
+        </div>
+        <div class="solution-holder">
+            <a href="solution.html">View solution</a>
+        </div>
+    </div>
+</body>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/tokyo-night-dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</html>
