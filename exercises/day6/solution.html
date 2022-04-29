@@ -106,6 +106,9 @@ def handle_guests(guest_list, menus):
     total_income = 0.00
 
     for guest in guest_list:
+        # take_order returns the price of the item, in addition to
+        # printing the guest, so we can just add the result straight
+        # to the income without worrying about anything else.
         total_income += take_order(guest, menus[guest['restaurant']])
 
     return total_income
