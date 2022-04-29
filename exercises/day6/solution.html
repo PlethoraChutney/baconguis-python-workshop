@@ -60,16 +60,26 @@ menus = {
     'thai': thai_menu
 }
 
+# not strictly part of the assignment, but will be helpful to make sure everything is working
+# can also use it in the last function.
+def print_guest(guest):
+    # check if order is empty or not
+    if guest['order']:
+        order = ' ordered ' + guest['order']
+    else:
+        order = " hasn't ordered yet"
+    print(guest['name'] + order + ' from ' + guest['restaurant'] + '.')
+
 def take_order(guest, menu):
     # This line picks a random option from the keys of the
     # given menu. Those will be the names of the dishes.
 
-    order = choice(list(menu.keys()))
-    print(guest + ' ordered ' + order)
+    guest['order'] = choice(list(menu.keys()))
+    print_guest(guest)
 
     # and then we return the price, which is the value for the
     # given key
-    return menu[order]
+    return menu[guest['order']]
 
 # I'll make my guests using a for loop, but making them by hand
 # would work too!
@@ -86,36 +96,22 @@ for guest in [
         'order': ''
     })
 
-# not strictly part of the assignment, but will be helpful to make sure everything is working
-# can also use it in the last function.
-def print_guest(guest):
-    # check if order is empty or not
-    if guest['order']:
-        order = ' ordered ' + guest['order']
-    else:
-        order = " hasn't ordered yet"
-    print(guest['name'] + order + ' from ' + guest['restaurant'] + '.')
-
 print('Before ordering:')
 for guest in guests:
     print_guest(guest)
+
+print('\nAfter ordering:')
 
 def handle_guests(guest_list, menus):
     total_income = 0.00
 
     for guest in guest_list:
-        menu = menus[guest['restaurant']]
-        order = choice(list(menu.keys()))
-        guest['order'] = order
-        total_income += menu[order]
+        total_income += take_order(guest, menus[guest['restaurant']])
 
     return total_income
 
 total_income = handle_guests(guests, menus)
 
-print('\nAfter ordering:')
-for guest in guests:
-    print_guest(guest)
 print('Total sales tonight: ' + str(total_income))</code></pre>
     </div>
 </body>
