@@ -12,13 +12,1048 @@
         <div class="header">
             <h1>Exercises - Loop Practice</h1>
         </div>
-        <div class="exercise">
-            <section>
-                <p>Let's get a bit more practice with loops!</p>
-            </section>
+        <div class="exercise" id="exercise-holder">
+
+<section>
+    <p>Let's get a bit more practice with loops!</p>
+</section>
+
+<section>
+    <p>
+        Your friends all complain about how awful dating websites are,
+        so you decide to make your own! 
+    </p>    
+    <p>
+        Of course, you'll implement your
+        own biases in your Coupling Algorithm&trade;. This will ensure
+        that all matches are Correct&trade;. After all, the goal of any dating
+        website is to make iteself obsolete&trade;.
+    </p>
+</section>
+
+<section>
+    <p>
+        The first step of making any website is to develop a userbase.
+        Since everyone is so desperate for human connection (have you heard
+        of this COVID thing?), getting everyone to sign up is easy.
+    </p>
+    <p>
+        <span class="emph">Copy-paste this list of users</span> into your
+        script.
+    </p>
+
+    <p id="code-copier" class="script-runner">
+        Click me to select all the code.
+    </p>
+
+    <pre style="height: 300px;"><code id="user-base" style="height: 80%;" class="language-python">users = [
+    {
+        "user_id": 137,
+        "age": 25,
+        "political_party": "Democrat",
+        "interests": "Beer"
+    },
+    {
+        "user_id": 224,
+        "age": 35,
+        "political_party": "Democratic-Socialist",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 230,
+        "age": 35,
+        "political_party": "Democrat",
+        "interests": "Fishing"
+    },
+    {
+        "user_id": 166,
+        "age": 35,
+        "political_party": "Nonaffiliated",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 129,
+        "age": 33,
+        "political_party": "Democratic-Socialist",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 249,
+        "age": 34,
+        "political_party": "Nonaffiliated",
+        "interests": "Science"
+    },
+    {
+        "user_id": 866,
+        "age": 35,
+        "political_party": "Nonaffiliated",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 355,
+        "age": 28,
+        "political_party": "Democrat",
+        "interests": "Science"
+    },
+    {
+        "user_id": 573,
+        "age": 26,
+        "political_party": "Democrat",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 561,
+        "age": 32,
+        "political_party": "Independent",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 492,
+        "age": 26,
+        "political_party": "Libertarian",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 873,
+        "age": 30,
+        "political_party": "Republican",
+        "interests": "Fishing"
+    },
+    {
+        "user_id": 933,
+        "age": 29,
+        "political_party": "Democrat",
+        "interests": "Fishing"
+    },
+    {
+        "user_id": 741,
+        "age": 26,
+        "political_party": "Nonaffiliated",
+        "interests": "Science"
+    },
+    {
+        "user_id": 673,
+        "age": 25,
+        "political_party": "Democratic-Socialist",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 406,
+        "age": 28,
+        "political_party": "Libertarian",
+        "interests": "Beer"
+    },
+    {
+        "user_id": 94,
+        "age": 28,
+        "political_party": "Democrat",
+        "interests": "Science"
+    },
+    {
+        "user_id": 306,
+        "age": 34,
+        "political_party": "Democratic-Socialist",
+        "interests": "Beer"
+    },
+    {
+        "user_id": 327,
+        "age": 35,
+        "political_party": "Democratic-Socialist",
+        "interests": "Beer"
+    },
+    {
+        "user_id": 146,
+        "age": 28,
+        "political_party": "Democrat",
+        "interests": "Overthrow of the fascist police state"
+    },
+    {
+        "user_id": 875,
+        "age": 28,
+        "political_party": "Democratic-Socialist",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 366,
+        "age": 32,
+        "political_party": "Democrat",
+        "interests": "Fishing"
+    },
+    {
+        "user_id": 477,
+        "age": 33,
+        "political_party": "Republican",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 825,
+        "age": 26,
+        "political_party": "Democrat",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 116,
+        "age": 31,
+        "political_party": "Nonaffiliated",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 901,
+        "age": 26,
+        "political_party": "Libertarian",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 163,
+        "age": 25,
+        "political_party": "Democrat",
+        "interests": "Science"
+    },
+    {
+        "user_id": 581,
+        "age": 35,
+        "political_party": "Libertarian",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 912,
+        "age": 30,
+        "political_party": "Nonaffiliated",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 771,
+        "age": 31,
+        "political_party": "Democratic-Socialist",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 856,
+        "age": 31,
+        "political_party": "Democratic-Socialist",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 469,
+        "age": 25,
+        "political_party": "Libertarian",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 389,
+        "age": 27,
+        "political_party": "Democratic-Socialist",
+        "interests": "Fishing"
+    },
+    {
+        "user_id": 788,
+        "age": 32,
+        "political_party": "Democratic-Socialist",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 48,
+        "age": 34,
+        "political_party": "Democratic-Socialist",
+        "interests": "Beer"
+    },
+    {
+        "user_id": 916,
+        "age": 34,
+        "political_party": "Libertarian",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 441,
+        "age": 29,
+        "political_party": "Independent",
+        "interests": "Beer"
+    },
+    {
+        "user_id": 830,
+        "age": 29,
+        "political_party": "Nonaffiliated",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 998,
+        "age": 30,
+        "political_party": "Libertarian",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 425,
+        "age": 34,
+        "political_party": "Nonaffiliated",
+        "interests": "Fishing"
+    },
+    {
+        "user_id": 971,
+        "age": 25,
+        "political_party": "Republican",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 218,
+        "age": 31,
+        "political_party": "Libertarian",
+        "interests": "Beer"
+    },
+    {
+        "user_id": 632,
+        "age": 30,
+        "political_party": "Democrat",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 80,
+        "age": 27,
+        "political_party": "Democratic-Socialist",
+        "interests": "Beer"
+    },
+    {
+        "user_id": 335,
+        "age": 28,
+        "political_party": "Democrat",
+        "interests": "Fishing"
+    },
+    {
+        "user_id": 723,
+        "age": 32,
+        "political_party": "Republican",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 694,
+        "age": 25,
+        "political_party": "Independent",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 959,
+        "age": 33,
+        "political_party": "Democrat",
+        "interests": "Fishing"
+    },
+    {
+        "user_id": 839,
+        "age": 25,
+        "political_party": "Nonaffiliated",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 490,
+        "age": 27,
+        "political_party": "Nonaffiliated",
+        "interests": "Science"
+    },
+    {
+        "user_id": 510,
+        "age": 34,
+        "political_party": "Independent",
+        "interests": "Science"
+    },
+    {
+        "user_id": 194,
+        "age": 32,
+        "political_party": "Democrat",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 880,
+        "age": 32,
+        "political_party": "Democrat",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 807,
+        "age": 34,
+        "political_party": "Independent",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 320,
+        "age": 27,
+        "political_party": "Republican",
+        "interests": "Science"
+    },
+    {
+        "user_id": 42,
+        "age": 32,
+        "political_party": "Libertarian",
+        "interests": "Beer"
+    },
+    {
+        "user_id": 214,
+        "age": 35,
+        "political_party": "Independent",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 410,
+        "age": 31,
+        "political_party": "Democrat",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 258,
+        "age": 26,
+        "political_party": "Democratic-Socialist",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 440,
+        "age": 29,
+        "political_party": "Democrat",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 63,
+        "age": 28,
+        "political_party": "Republican",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 255,
+        "age": 30,
+        "political_party": "Democrat",
+        "interests": "Overthrow of the fascist police state"
+    },
+    {
+        "user_id": 526,
+        "age": 26,
+        "political_party": "Democrat",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 637,
+        "age": 30,
+        "political_party": "Libertarian",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 405,
+        "age": 28,
+        "political_party": "Nonaffiliated",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 164,
+        "age": 27,
+        "political_party": "Independent",
+        "interests": "Overthrow of the fascist police state"
+    },
+    {
+        "user_id": 955,
+        "age": 35,
+        "political_party": "Democrat",
+        "interests": "Beer"
+    },
+    {
+        "user_id": 468,
+        "age": 33,
+        "political_party": "Democratic-Socialist",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 374,
+        "age": 32,
+        "political_party": "Libertarian",
+        "interests": "Science"
+    },
+    {
+        "user_id": 799,
+        "age": 27,
+        "political_party": "Democratic-Socialist",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 394,
+        "age": 26,
+        "political_party": "Republican",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 629,
+        "age": 32,
+        "political_party": "Democrat",
+        "interests": "Overthrow of the fascist police state"
+    },
+    {
+        "user_id": 911,
+        "age": 33,
+        "political_party": "Democratic-Socialist",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 764,
+        "age": 27,
+        "political_party": "Democrat",
+        "interests": "Overthrow of the fascist police state"
+    },
+    {
+        "user_id": 285,
+        "age": 33,
+        "political_party": "Nonaffiliated",
+        "interests": "Overthrow of the fascist police state"
+    },
+    {
+        "user_id": 322,
+        "age": 28,
+        "political_party": "Democrat",
+        "interests": "Science"
+    },
+    {
+        "user_id": 867,
+        "age": 35,
+        "political_party": "Democrat",
+        "interests": "Fishing"
+    },
+    {
+        "user_id": 705,
+        "age": 25,
+        "political_party": "Republican",
+        "interests": "Science"
+    },
+    {
+        "user_id": 886,
+        "age": 34,
+        "political_party": "Nonaffiliated",
+        "interests": "Science"
+    },
+    {
+        "user_id": 49,
+        "age": 30,
+        "political_party": "Nonaffiliated",
+        "interests": "Beer"
+    },
+    {
+        "user_id": 605,
+        "age": 33,
+        "political_party": "Libertarian",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 536,
+        "age": 32,
+        "political_party": "Democrat",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 845,
+        "age": 28,
+        "political_party": "Independent",
+        "interests": "Science"
+    },
+    {
+        "user_id": 83,
+        "age": 29,
+        "political_party": "Democratic-Socialist",
+        "interests": "Overthrow of the fascist police state"
+    },
+    {
+        "user_id": 15,
+        "age": 35,
+        "political_party": "Democrat",
+        "interests": "Science"
+    },
+    {
+        "user_id": 600,
+        "age": 33,
+        "political_party": "Republican",
+        "interests": "Overthrow of the fascist police state"
+    },
+    {
+        "user_id": 816,
+        "age": 25,
+        "political_party": "Nonaffiliated",
+        "interests": "Science"
+    },
+    {
+        "user_id": 90,
+        "age": 25,
+        "political_party": "Nonaffiliated",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 128,
+        "age": 26,
+        "political_party": "Democratic-Socialist",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 593,
+        "age": 31,
+        "political_party": "Nonaffiliated",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 430,
+        "age": 30,
+        "political_party": "Democrat",
+        "interests": "Fishing"
+    },
+    {
+        "user_id": 367,
+        "age": 28,
+        "political_party": "Democrat",
+        "interests": "Fishing"
+    },
+    {
+        "user_id": 229,
+        "age": 25,
+        "political_party": "Democratic-Socialist",
+        "interests": "Fishing"
+    },
+    {
+        "user_id": 177,
+        "age": 34,
+        "political_party": "Democrat",
+        "interests": "Fishing"
+    },
+    {
+        "user_id": 173,
+        "age": 31,
+        "political_party": "Democrat",
+        "interests": "Sewing"
+    },
+    {
+        "user_id": 482,
+        "age": 26,
+        "political_party": "Libertarian",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 269,
+        "age": 32,
+        "political_party": "Democratic-Socialist",
+        "interests": "Hiking"
+    },
+    {
+        "user_id": 613,
+        "age": 32,
+        "political_party": "Republican",
+        "interests": "Science"
+    },
+    {
+        "user_id": 679,
+        "age": 30,
+        "political_party": "Democratic-Socialist",
+        "interests": "Coding"
+    },
+    {
+        "user_id": 358,
+        "age": 28,
+        "political_party": "Nonaffiliated",
+        "interests": "Hiking"
+    }
+]</code></pre>
+
+    <p id="show-generation" class="hint">
+        Click me to show how Rich generated this user list
+    </p>
+
+    <script>
+        const codeCopier = document.getElementById('code-copier');
+        codeCopier.addEventListener('click', () => {
+            window.getSelection().selectAllChildren(
+                document.getElementById('user-base')
+            );
+        });
+
+        const showGen = document.getElementById('show-generation');
+        showGen.addEventListener('click', () => {
+            document.getElementById('generation-code').classList.remove('no-show')
+        })
+
+        const clickToShow = (click, show) => {
+            document.getElementById(click).addEventListener('click', () => {
+                showMe = document.getElementById(show);
+                showMe.classList.remove('no-show');
+                document.getElementById('exercise-holder').scrollTop = showMe.offsetTop;
+            });
+        }
+    </script>
+
+    <pre class="no-show" id="generation-code"><code class="langauge-python">from random import choice, shuffle, randint
+
+# build odds into our party list by duplicating
+political_parties = [
+    'Democrat',
+    'Democrat',
+    'Democrat',
+    'Democrat',
+    'Independent',
+    'Republican',
+    'Republican',
+    'Nonaffiliated',
+    'Libertarian',
+    'Democratic-Socialist',
+    'Democratic-Socialist'
+]
+
+interests = [
+    'Fishing',
+    'Hiking',
+    'Beer',
+    'Sewing',
+    'Coding',
+    'Science',
+    'Overthrow of the fascist police state'
+]
+
+# using randint might give us a user id collision
+user_ids = list(range(0,1000))
+shuffle(user_ids)
+
+# construct a list of 100 user dictionary objects
+num_users = 100
+print('users = [')
+for i in range(num_users):
+    # so-called f-strings are a way to format strings
+    # without tedious type conversion required for
+    # the `+` syntax. Google if interested.
+    print('  {')
+    # pop removes and returns the first element of a list.
+    # remember we shuffled this list, so it's in a random
+    # order.
+    print(f'    "user_id": {user_ids.pop()},')
+    print(f'    "age": {randint(25,35)},')
+    print(f'    "political_party": "{choice(political_parties)}",')
+    print(f'    "interests": "{choice(interests)}"')
+    # this is a compact form of an if/else statement, determining
+    # whether or not we should print the comma (we should unless it's
+    # the last element of our list.)
+    print('  }' if i == num_users - 1 else '  },')
+        print(']')</code></pre>
+</section>
+
+<section>
+    <p>
+        Let's make sure our database is working.
+        Write a for loop to print every user's <span class="emph">User ID</span>
+    </p>
+
+    <p class="hint" id="for-loop-answer-shower">Show how Rich did it</p>
+
+    <pre id="for-loop-answer" class="no-show"><code class="language-python">for user in users:
+    print(user['user_id'])</code></pre>
+
+    <script>
+        clickToShow('for-loop-answer-shower', 'for-loop-answer');
+    </script>
+</section>
+
+<section>
+    <p>
+        Generally, users want to date people <span class="emph">of their same political party</span>.
+    </p>
+    <p>
+        For each user, print their ID and the number of users with the same party.
+    </p>
+
+    <p class="hint" id="pol-answer-shower">
+        Show how Rich did it
+    </p>
+
+    <pre id="pol-answer" class="no-show"><code class="language-python">for user in users:
+    compatible = 0
+    user_id = user['user_id']
+    for potential_mate in users:
+        # ignore the self-pairing...
+        if potential_mate['user_id'] != user_id:
+            if potential_mate['political_party'] == user['political_party']:
+                compatible += 1
+    print('ID:', user['user_id'], 'Compatible:', compatible)</code></pre>
+
+    <script>
+        clickToShow('pol-answer-shower', 'pol-answer');
+    </script>
+</section>
+
+<section>
+    <p>
+        Hmm...there are some slim pickings there. Maybe we should let users pick from among
+        closely aligned political parties:
+    </p>
+    <ul>
+        <li>
+            A <span class="emph">Democrat</span> would date a Democrat or an Independent.
+        </li>
+        <li>
+            A <span class="emph">Republican</span> would date a Republican or a Libertarian.
+        </li>
+        <li>
+            An <span class="emph">Independent</span> would date a Democrat, Independent, or
+            Republican (note that the feeling is not mutual!)
+        </li>
+        <li>
+            A <span class="emph">Libertarian</span> would date another Libertarian.
+        </li>
+        <li>
+            A <span class="emph">Democratic-Socialist</span> would date another member of DSA, or
+            a Democrat in a pinch.
+        </li>
+        <li>
+            A <span class="emph">Nonaffiliated</span> person would date anyone, and anyone would
+            date them in addition to their list above.
+        </li>
+    </ul>
+    <p>
+        Modify your loop above to print the number of users that each user would be willing to
+        date. You don't need to check that they're compatible, just one-way attraction.
+    </p>
+
+    <p class="hint" id="pol-assoc-shower">Show how Rich did it</p>
+
+    <pre id="pol-assoc-answer" class="no-show"><code class="language-python"># make a dictionary of acceptable pairings
+compatibility = {
+    'Democrat': ['Democrat', 'Independent'],
+    'Republican': ['Republican', 'Libertarian'],
+    'Independent': ['Democrat', 'Independent', 'Republican'],
+    'Libertarian': ['Libertarian'],
+    'Democratic-Socialist': ['Democratic-Socialist', 'Democrat']
+}
+
+for user in users:
+    compatible_count = 0
+    if user['political_party'] == 'Nonaffiliated':
+        # we need to make an empty list here, otherwise we'll get an error
+        # during the loop when we try to check `would_date`
+        would_date = []
+    else:
+        would_date = compatibility[user['political_party']]
+
+    # now we start checking for pairings
+    for potential_mate in users:
+        # check party pairing, and account for nonaffiliated
+        #
+        # the first line checks if the potential mate's political party
+        # is acceptable. the second two lines check if either user is Nonaffiliated,
+        # in which case nothing else matters.
+        is_compatible = potential_mate['political_party'] in would_date\
+            or user['political_party'] == 'Nonaffiliated'\
+            or potential_mate['political_party'] == 'Nonaffiliated'
+
+        # make sure we're not counting the user as their own partner
+        if is_compatible and potential_mate['user_id'] != user['user_id']:
+            compatible_count += 1
+    print('ID:', user['user_id'], 'Compatible:', compatible_count)</code></pre>
+
+    <script>clickToShow('pol-assoc-shower', 'pol-assoc-answer');</script>
+</section>
+
+<section>
+    <p>
+        Okay, that looks better. Now, instead of just keeping track of the number
+        of possible pairings, <span class="emp">make a list of compatible users for
+        each user ID</span>.
+    </p>
+
+    <p class="hint" id="list-of-pairings-shower">
+        Show how Rich did it
+    </p>
+
+    <pre id="list-of-pairings-answer" class="no-show"><code class="language-python"># make a dictionary of acceptable pairings
+compatibility = {
+    'Democrat': ['Democrat', 'Independent'],
+    'Republican': ['Republican', 'Libertarian'],
+    'Independent': ['Democrat', 'Independent', 'Republican'],
+    'Libertarian': ['Libertarian'],
+    'Democratic-Socialist': ['Democratic-Socialist', 'Democrat']
+}
+
+potential_pairings = {}
+for user in users:
+    compatible_users = []
+    if user['political_party'] == 'Nonaffiliated':
+        # we need to make an empty list here, otherwise we'll get an error
+        # during the loop when we try to check `would_date`
+        would_date = []
+    else:
+        would_date = compatibility[user['political_party']]
+
+    # now we start checking for pairings
+    for potential_mate in users:
+        # check party pairing, and account for nonaffiliated
+        is_compatible = potential_mate['political_party'] in would_date\
+            or user['political_party'] == 'Nonaffiliated'\
+            or potential_mate['political_party'] == 'Nonaffiliated'
+
+        # make sure we're not counting the user as their own partner
+        if is_compatible and potential_mate['user_id'] != user['user_id']:
+            compatible_users.append(potential_mate)
+
+    print('ID:', user['user_id'], 'Compatible:', len(compatible_users))
+
+    # now each user_id will have associated with it a list of
+    # compatible users, which we can use later to make pairings.
+    potential_pairings[user['user_id']] = compatible_users</code></pre>
+
+    <script>clickToShow('list-of-pairings-shower', 'list-of-pairings-answer');</script>
+</section>
+
+<section>
+    <p>
+        It's finally time to send users on some dates!
+    </p>
+    <p>
+        For each user, perform the following tasks:
+    </p>
+    <ul>
+        <li>
+            Pick a compatible user for that user to go on a date with. The compatible user
+            must not already have been "coupled" with someone (see below).
+        </li>
+        <li>
+            Send the user on a "date". Dates work as follows:
+        </li>
+        <ul>
+            <li>Pick a random number between 0 and 10</li>
+            <li>If the users share an interest, add 2</li>
+            <li>If the users' political parties are exactly the same, add 1, otherwise subtract 1</li>
+            <li>If the the difference between the users' ages is less than 4 years, add 1, otherwise subtract 1</li>
+            <li>If the final result of the date is greater than 5, the date went well! Otherwise, it was a bust.</li>
+        </ul>
+        <li>
+            If the user's date went well, they are "coupled" with the user they
+            went on a date with. Keep track of all users who are coupled, and who they are coupled with.
+        </li>
+        <li>
+            If a user's date went poorly, move on to the next potential date in their list.
+            Users can go on multiple dates with the same person, if need be.
+        </li>
+        <li>
+            If a user has no remaining uncoupled potential dates, just mark them as coupled with
+            nobody and move on.
+        </li>
+    </ul>
+    <p>
+        Don't forget,
+        Independents want to go on a date with Republicans, but the oppose is not true,
+        so no couples of Indepdents and Republicans should exist!
+    </p>
+    <p>
+        Then print all the pairings! Nice work cupid!
+    </p>
+    <p class="hint" id="pairings-shower">Show how Rich did it</p>
+
+    <pre id="pairings-answer" class="no-show"><code class="language-python"># make a dictionary of acceptable pairings
+compatibility = {
+    'Democrat': ['Democrat', 'Independent'],
+    'Republican': ['Republican', 'Libertarian'],
+    'Independent': ['Democrat', 'Independent', 'Republican'],
+    'Libertarian': ['Libertarian'],
+    'Democratic-Socialist': ['Democratic-Socialist', 'Democrat']
+}
+
+potential_pairings = {}
+for user in users:
+    compatible_users = []
+    if user['political_party'] == 'Nonaffiliated':
+        # we need to make an empty list here, otherwise we'll get an error
+        # during the loop when we try to check `would_date`
+        would_date = []
+    else:
+        would_date = compatibility[user['political_party']]
+
+    # now we start checking for pairings
+    for potential_mate in users:
+        # check party pairing, and account for nonaffiliated
+        is_compatible = potential_mate['political_party'] in would_date\
+            or user['political_party'] == 'Nonaffiliated'\
+            or potential_mate['political_party'] == 'Nonaffiliated'
+
+        # make sure we're not counting the user as their own partner
+        if is_compatible and potential_mate['user_id'] != user['user_id']:
+            compatible_users.append(potential_mate)
+
+    # now each user_id will have associated with it a list of
+    # compatible users, which we can use later to make pairings.
+    potential_pairings[user['user_id']] = compatible_users
+
+couples = {}
+
+from random import randint
+for user in users:
+    user_id = user['user_id']
+    # assign some variables to reduce typing
+    potential_dates = potential_pairings[user_id]
+    pol_party = user['political_party']
+    interest = user['interests']
+    age = user['age']
+
+    # repeat until our user is coupled
+    # skip if they already are
+    while user_id not in couples.keys():
+        # if there are no remaining potential partners, mark
+        # this user as hopeless
+        if len(potential_dates) == 0:
+            couples[user_id] = 'Nobody'
+        else:
+            # get the first potential date and remove it from the list
+            # you could also do this with these two lines:
+            # partner = potential_dates[0]
+            # del potential_dates[0]
+            partner = potential_dates.pop()
+
+            # if the partner is not already coupled:
+            if partner['user_id'] not in couples:
+                # send the users on a date
+                date_quality = randint(0,10)
+
+                # first, let's deal with the fact that Independents
+                # are idiots who think Republicans can be reasoned with.
+                if pol_party == 'Independent' and partner['political_party'] == 'Republican':
+                    # setting date_quality to a large negative number 
+                    # prevents the date from going well, essentially
+                    # skipping it.
+                    #
+                    # the better way to do this would be the `continue`
+                    # keyword, but we haven't covered that yet. I encourage
+                    # you to google it.
+                    date_quality = -1000
+                    return_on_failed_date = False
+                else:
+                    return_on_failed_date = True
+
+                if interest == partner['interests']:
+                    date_quality += 2
+
+                if pol_party == partner['political_party']:
+                    date_quality += 1
+                else:
+                    date_quality -= 1
+
+                if abs(age - partner['age']) < 4:
+                    date_quality += 1
+                else:
+                    date_quality -= 1
+
+                # assess the date
+                if date_quality > 5:
+                    # add both sides of the couple to the dictionary
+                    couples[user_id] = partner['user_id']
+                    couples[partner['user_id']] = user_id
+                else:
+                    # return this potential match to the end
+                    # of the pool so we can try again later,
+                    # if need be.
+                    #
+                    # don't put the partner back if there is a political
+                    # party mismatch
+                    if return_on_failed_date:
+                        potential_dates.append(partner)
+
+print(couples)</code></pre>
+
+    <script>clickToShow('pairings-shower', 'pairings-answer');</script>
+</section>
+
+
         </div>
         <div class="solution-holder">
-            <a href="solution.html">View solution</a>
+            
         </div>
         </div>
     </div>

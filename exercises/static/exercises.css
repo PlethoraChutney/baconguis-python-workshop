@@ -12,6 +12,7 @@ body {
 code {
     font-family: 'JetBrains Mono', monospace;
     font-variant-ligatures: none;
+    max-width: 90vw;
 }
 
 span.emph {
@@ -51,7 +52,7 @@ div.header > h1, div.header > h2 {
 }
 
 div.exercise {
-    max-width: 1000px;
+    max-width: 1200px;
     grid-area: exercises;
     margin: auto;
     overflow: auto;
@@ -66,6 +67,7 @@ div.exercise > section > h2 {
 
 ul {
     width: max-content;
+    max-width: 50rem;
     margin: auto;
 }
 
@@ -82,6 +84,25 @@ table {
 div.solution-holder {
     grid-area: footer;
     margin: auto;
+}
+
+p.hint {
+    font-style: italic;
+    color: #00000066;
+    cursor: pointer;
+    width: max-content;
+}
+
+p.script-runner {
+    font-style: italic;
+    cursor: pointer;
+    color: #FFAF40;
+    width: max-content;
+}
+
+.no-show {
+    visibility: hidden;
+    display: none;
 }
 
 /* solutions */
