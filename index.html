@@ -2732,6 +2732,133 @@ print('Total sales tonight: ' + str(total_income))</code></pre>
 
 </section>
 
+<section>
+<section>
+    <h1>Reading files</h1>
+</section>
+
+<section data-auto-animate="">
+    <h2>Reading Files</h2>
+    <div class="read-text">
+        <p>
+            Up to now, we've been putting all the information our script
+            needs in the script itself. That is often not convenient or
+            even possible!
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>Reading Files</h2>
+    <div class="read-text">
+        <p>
+            Luckily, it's very easy to read and write files in python!
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>What even is a "file"?</h2>
+    <div class="read-text">
+        <p>
+            For the purposes of today, let's only consider
+            <span class="emph">text files</span>.
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <h2>What even is a "file"?</h2>
+    <div class="fit-two">
+        <p>
+            For the purposes of today, let's only consider
+            <span class="emph">text files</span>.
+        </p>
+        <pre>example.txt<code data-trim="">
+            This is a file! Maybe it's called
+            "example.txt". I wonder how it is
+            actually stored?
+        </code></pre>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <pre class="r-stretch"><code class="">
+% od -bc example.txt
+0000000 124 150 151 163 040 151 163 040 141 040 146 151 154 145 041 040
+        T   h   i   s       i   s       a       f   i   l   e   !
+0000020 115 141 171 142 145 040 151 164 047 163 040 143 141 154 154 145
+        M   a   y   b   e       i   t   '   s       c   a   l   l   e
+0000040 144 012 042 145 170 141 155 160 154 145 056 164 170 164 042 056
+        d  \n   "   e   x   a   m   p   l   e   .   t   x   t   "   .
+0000060 040 111 040 167 157 156 144 145 162 040 150 157 167 040 151 164
+            I       w   o   n   d   e   r       h   o   w       i   t
+0000100 040 151 163 012 141 143 164 165 141 154 154 171 040 163 164 157
+            i   s  \n   a   c   t   u   a   l   l   y       s   t   o
+0000120 162 145 144 077 012
+        r   e   d   ?  \n
+0000125
+    </code></pre>
+</section>
+
+<section data-auto-animate="">
+    <h2>What even is a "file"?</h2>
+    <div class="read-text">
+        <p>
+            OK, cool. How do we read it?
+        </p>
+    </div>
+</section>
+
+<section data-auto-animate="">
+    <pre><code data-trim class="language-python">
+    my_file = open('example.txt', 'r')
+    for line in my_file:
+        print(line)
+    my_file.close()
+    </code></pre>
+    <pre><code data-trim class="language-shell">
+    This is a file! Maybe it's called
+    
+    "example.txt". I wonder how it is
+    
+    actually stored?
+    </code></pre>
+</section>
+
+<section data-auto-animate="">
+    <pre><code data-trim class="language-python">
+    my_file = open('example.txt', 'r')
+    for line in my_file:
+        print(line)
+    my_file.close()
+    </code></pre>
+    <pre><code data-trim class="language-shell">
+    This is a file! Maybe it's called
+    
+    "example.txt". I wonder how it is
+    
+    actually stored?
+    </code></pre>
+    <p>Why do you think there are extra lines here?</p>
+</section>
+
+<section data-auto-animate="">
+    <pre><code data-trim class="language-python">
+    # if you do it this way, you don't
+    # need to remember to close it
+    with open('example.txt', 'r') as my_file:
+        print(list(my_file))
+    </code></pre>
+    <pre><code data-trim class="language-shell">
+["This is a file! Maybe it's called\n", '"example.txt". I wonder how it is\n', 'actually stored?\n']
+    </code></pre>
+</section>
+
+
+
+</section>
+
 </div>
 </div>
 
