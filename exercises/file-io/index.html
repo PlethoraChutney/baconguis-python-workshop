@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises - File I/O</title>
+    <link rel="stylesheet" href="/exercises/static/exercises.css">
+</head>
+<body>
+    <div class="page-view">
+        <div class="header">
+            <h1>Exercises - File I/O</h1>
+        </div>
+        <div class="exercise" id="exercise-holder">
+
+<section>
+    <p>
+        For practice, I thought we could do something a bit practical now
+        that we've built up some skills. I'd like you to try to write
+        a python script which processes a STAR file. You can download that
+        file <a href="example.star">here</a>.
+    </p>
+    <p class="hint" id="starfile-click">
+        What's a STAR file?
+    </p>
+    <div class="solution no-show" id="starfile">
+        <p>
+            STAR files are a text archive format. RELION uses them for particle coordinates,
+            angles, and other info. A brief description of the standard:
+        </p>
+        <ul>
+            <li>
+                Any line starting with <span class="fake-code">data_</span>
+                is the name of the table
+            </li>
+            <li>
+                <span class="fake-code">loop_</span> starts the table
+            </li>
+            <li>
+                Any line starting with <span class="fake-code">_</span> is a column name
+            </li>
+            <li>
+                Any other line is a row, with column entries separated by whitespace.
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <p>
+        First, read the STAR file into a python object.
+    </p>
+    <p class="hint" id="read-in-click">Show how Rich did it</p>
+    <div class="solution no-show" id="read-in">
+        <pre><code class="language-python">with open('example.star', 'r') as f:
+    starfile = list(f)</code></pre>
+    </div>
+</section>
+
+<section>
+    <p>
+        Next, create a dictionary where the keys are the column names and the 
+        values are a list of entries in that column. I.e., the key
+        <span class="fake-code">rlnAngleRot</span> would have the list of all
+        particle rotations as its value.
+    </p>
+
+    <p class="hint" id="dataframe-breakdown-click">How did Rich break this problem down?</p>
+    <div class="solution no-show" id="dataframe-breakdown">
+        <p>To solve this problem, we need to do a couple things.</p> 
+        <ol>
+            <li>
+                We need to figure out whether a row is a column name, data
+                entry, or something else. So I would start by just printing what
+                I think each line is, in order (e.g., 'Table name', 'empty',
+                'column name', etc.)
+            </li>
+            <li>
+                Then we process the row. A column name should be used to create
+                a new key/value pair, and a row should be used to add a single entry
+                to every value. Remember that in versions >= 3.7, the order of keys
+                in a python dictionary is preserved, so no need to worry about order!
+            </li>
+            <li>
+                You may want to consider type here --- if a column is all numbers,
+                is it worth converting them here? Or should you only do that if you
+                need to? No right answer.
+            </li>
+        </ol>
+    </div>
+
+    <p class="hint" id="dataframe-click">Show how Rich did it</p>
+    <div class="solution no-show" id="dataframe">
+        <pre><code class="language-python">dataframe = {}
+
+# loop over our list of lines
+for line in starfile:
+    # remove the '\n' character at the end of each line
+    line = line.rstrip()
+
+    # skip blank lines --- remember '' is False
+    if not line:
+        continue
+    
+    # create a couple bool variables to make it easier to keep track
+    # of what's going on. Not strictly necessary, but neater.
+    is_table_name = 'data_' in line
+    is_table_start = line == 'loop_'
+    is_column_name = line[0] == '_'
+
+    # for this example, we know there's only one table. If you were
+    # being thorough, you could create the dictionary here instead
+    # of before the loop.
+    if is_table_name or is_table_start:
+        continue
+
+    if is_column_name:
+        # remove the comment at the end of the line by splitting
+        # on whitespace and keeping only the first element. Again,
+        # you don't need to do this. If you skip this step you just
+        # end up including RELION's column number comments.
+        line = line.split()[0]
+
+        # remove "_rln" by slicing the string
+        line = line[4:]
+
+        # create an key/value pair with an empty list to add to
+        dataframe[line] = []
+    else:
+        # get the column names. we do this here since we know that all
+        # the columns are defined before the data.
+        colnames = list(dataframe.keys())
+
+        # split the line on whitespace by default. gives us a list of the
+        # entries as strings
+        line = line.split()
+
+        # loop over the integers from 0 to the number of entries - 1
+        for i in range(len(line)):
+            # add the i-th entry to the i-th column
+            dataframe[colnames[i]].append(line[i])</code></pre>
+    </div>
+</section>
+
+<section>
+    <p>
+        Print the average values of rlnAngleRot, rlnAngleTilt, and rlnAnglePsi.
+    </p>
+
+    <p class="hint" id="averages-breakdown-click">How did Rich break this problem down?</p>
+    <div class="solution no-show" id="averages-breakdown">
+        <p>I see three steps for this problem.</p>
+        <ol>
+            <li>Loop over the columns we're interested in</li>
+            <li>Convert the column to numbers, if you haven't already</li>
+            <li>Calculate their average</li>
+        </ol>
+        
+        <p>
+            We're going to be doing this three times (and, if you look ahead,
+            two more times after that). So it's probably worth writing a function
+            to convert a column of strings to numbers.
+        </p>
+        <p>
+            I could write my own <span class="fake-code">mean()</span> function, but
+            first I'll google "python mean of list" to see if there's a standard function to
+            do it.
+        </p>
+    </div>
+
+    <p class="hint click" id="averages-click">Show how Rich did it</p>
+    <div class="solution no-show" id="averages">
+        <pre><code class="language-python"># first I'll write a function to convert a list of strings
+# into a list of numbers, since we'll be doing that a lot
+def convert_to_numbers(string_column):
+    numbers = []
+    for entry in string_column:
+        numbers.append(float(entry))
+
+    return numbers
+
+# import the mean function from the statistics library
+from statistics import mean
+
+# of course, you could write your own mean function if you wanted
+def my_mean(list_of_entries):
+    total = sum(list_of_entries)
+    return total/len(list_of_entries)
+
+# for each column we care about:
+for colname in ['AngleRot', 'AngleTilt', 'AnglePsi']:
+    # make a list of numbers
+    numbers = convert_to_numbers(dataframe[colname])
+    # print their average
+    print('Mean for ', colname, ': ', mean(numbers), sep = '')</code></pre>
+    </div>
+</section>
+
+<section>
+    <p>
+        Print the minimum and maximum values for rlnCoordinateX and rlnCoordinateY.
+    </p>
+
+    <p class="hint" id="minmax-breakdown-click">How did Rich break this problem down?</p>
+    <div class="solution no-show" id="minmax-breakdown">
+        <p>Much like the previous question, I see three steps here:</p>
+        <ol>
+            <li>Loop over the columns we're interested in</li>
+            <li>Convert the column to numbers, if you haven't already</li>
+            <li>Print the minimum and maximum</li>
+        </ol>
+        <p>
+            You can check the previous question for more detail on these steps. Again,
+            I could write my own <span class="fake-code">min()</span>
+            and <span class="fake-code">max()</span> functions, but I'll google
+            "python min of list" and "python max of list" to see if there are standard
+            functions.
+        </p>
+    </div>
+
+    <p class="hint" id="minmax-click">Show how Rich did it</p>
+    <div class="solution no-show" id="minmax">
+        <pre><code class="language-python">for colname in ['CoordinateX', 'CoordinateY']:
+    # if you don't know what convert_to_numbers is, check my solution
+    # for the mean of AngleRot, AngleTilt, and AnglePsi
+    numbers = convert_to_numbers(dataframe[colname])
+    print('Min for ', colname, ': ', min(numbers), sep = '')
+    print('Max for ', colname, ': ', max(numbers), sep = '')</code></pre>
+    </div>
+</section>
+
+<section>
+    <h1 style="text-align: center;">Challenge Questions</h1>
+
+    <p>
+        The next questions are tricky, but you have all the tools you need
+        to solve them! Give them a try and see how far you can get!
+    </p>
+</section>
+
+<section>
+    <p>Rotate each particle 180&deg; about rlnAngleRot.</p>
+
+    <p class="hint" id="rotation-breakdown-click">How did Rich break this problem down?</p>
+    <div class="solution no-show" id="rotation-breakdown">
+        <ol>
+            <li>First, we need to convert rlnAngleRot to numbers if it hasn't been already</li>
+            <li>Next we need to add 180 to each element</li>
+            <li>No rotation should be greater than 360</li>
+            <li>Finally, we should update our dataframe dictionary with the rotated angles</li>
+        </ol>
+        <p>
+            At this point, I'm used to pulling a column and converting it to a number if necessary.
+            There are a few ways to check if a number is greater than 360 and, if so, loop it around.
+            You might try googling "python modular arithmetic" to see if there's an easy way.
+        </p>
+    </div>
+
+    <p class="hint" id="rotation-click">Show how Rich did it</p>
+    <div class="solution no-show" id="rotation">
+        <pre><code class="language-python"># convert the strings to numbers
+#
+# I defined convert_to_numbers() when writing
+# my solution for the AngleRot, AngleTilt, AnglePsi question
+dataframe['AngleRot'] = convert_to_numbers(dataframe['AngleRot'])
+
+# for each integer i from 0 to the length of AngleRot - 1
+for i in range(len(dataframe['AngleRot'])):
+    # add 180 to the i-th particle, modulo 360,
+    # and store that value in position i
+    dataframe['AngleRot'][i] = (dataframe['AngleRot'][i] + 180) % 360
+
+# you could also create another list of particles
+# and reassign dataframe['AngleRot']
+# once you were done rotating them
+# instead of doing it in place.
+#
+# You wouldn't want to run both of these solutions!
+rotated_particles = []
+for angle_rot in dataframe['AngleRot']:
+    angle_rot = float(angle_rot)
+    angle_rot = (angle_rot + 180) % 360
+    rotated_particles.append(angle_rot)
+
+dataframe['AngleRot'] = rotated_particles</code></pre>
+    </div>
+</section>
+
+<section>
+    <p>
+        Write a new file, <span class="fake-code">rotated.star</span>, with your
+        rotated particles.
+    </p>
+
+    <p class="hint" id="write-breakdown-click">How did Rich break this problem down?</p>
+    <div class="solution no-show" id="write-breakdown">
+        <p>
+            This one is trickier than it first seems. We need to consider what a STAR
+            file needs to conform to the standard:
+        </p>
+        <ul>
+            <li>It needs to start with <span class="fake-code">data_{table name}</span></li>
+            <li>It needs to begin the data block with <span class="fake-code">loop_</span></li>
+            <li>
+                It needs each column name to be printed on a line,
+                prepended with <span class="fake-code">_</span>
+            </li>
+            <li>
+                After all the column names, each row of the data should be printed,
+                with entries separated by whitespace.
+            </li>
+        </ul>
+        <p>
+            Since we're only writing the one file, it's okay to do this in your main
+            script, but you might consider writing a <span class="fake-code">write_star()</span>
+            function for practice 😊
+        </p>
+        <p>
+            So, here's my thinking for this question:
+        </p>
+        <ol>
+            <li>Open a new file to write to. Call it <span class="fake-code">rotated.star</span></li>
+            <li>Write the table name</li>
+            <li>Write <span class="fake-code">loop_</span></li>
+            <li>
+                Write each column name, adding back the <span class="fake-code">_rln</span>
+                prefix that I removed when reading the table in
+            </li>
+            <li>
+                Loop over the length of any column (they should all be the same ---
+                maybe it's worth checking that they are!) using an integer index
+            </li>
+            <li>
+                For each integer, and each column, write the <span class="fake-code">i</span><sup>th</sup> column
+                entry. Separate the entries by a space
+            </li>
+        </ol>
+    </div>
+
+    <p class="hint" id="write-click">Show how Rich did it</p>
+    <div class="solution no-show" id="write">
+        <pre><code class="language-python">def write_star(filename, table_name, table):
+    with open(filename, 'w') as f:
+        # the following series of writes ends up looking like this:
+        # data_{table_name}
+        # 
+        # loop_
+        # {whatever we write next}
+        f.write('data_')
+        f.write(table_name)
+        f.write('\n\nloop_\n')
+        for colname in table.keys():
+            f.write('_rln' + colname + '\n')
+        
+        # `colname` is still stored from the loop,
+        # so we can use that to access whatever
+        # the last column happens to be
+        #
+        # for each integer from 0 to the length of the column - 1:
+        for i in range(len(table[colname])):
+            # make a new empty list
+            row = []
+
+            # for each column name
+            for colname in table.keys():
+                # add the i-th element of the column to the list as a string
+                row.append(str(dataframe[colname][i]))
+
+            # once we've looped over each column, combine the list
+            # of strings into a single string separated by spaces.
+            # you should google string.join() for syntax!
+            #
+            # you could of course do this with a for loop too :)
+
+            row = ' '.join(row)
+
+            # write our new row to the file
+            f.write(row)
+            # and finally, write a newline for the next row
+            f.write('\n')
+
+write_star('rotated.star', 'particles', dataframe)</code></pre>
+    </div>
+</section>
+
+    </div>
+    
+    <div class="solution-holder">
+        <a href="solution.html">View solution</a>
+    </div>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/tokyo-night-dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script>
+    const clickToShow = (baseID) => {
+        // add the click event listener to remove it
+        document.getElementById(`${baseID}-click`).addEventListener('click', () => {
+            showMe = document.getElementById(`${baseID}`);
+            showMe.classList.remove('no-show');
+        });
+    }
+
+    // run clickToShow on each solution
+    let solutionArray = document.getElementsByClassName('solution');
+    for (solution of solutionArray) {
+        baseID = solution.id;
+        console.log(baseID);
+        clickToShow(baseID);
+    }
+</script>
+<script>hljs.highlightAll();</script>
+</html>

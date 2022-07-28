@@ -65,14 +65,15 @@ div.exercise > section > h2 {
     visibility: hidden;
 }
 
-ul {
+ul, ol {
     width: max-content;
-    max-width: 50rem;
+    max-width: 66%;
     margin: auto;
 }
 
 section {
     border-bottom: 1px solid black;
+    padding-bottom: 1rem;
 }
 
 table {
@@ -117,4 +118,44 @@ p.script-runner {
     height: max-content;
     margin: auto;
     padding: 0;
+}
+
+.solution li {
+    margin-bottom: 0.5rem;
+}
+
+.solution > a {
+    font-size: 16pt;
+    display: block;
+    width: max-content;
+    margin: 1rem auto;
+}
+
+@media screen and (max-width: 800px) {
+    h1 {
+        font-size: 24pt;
+    }
+
+    div{
+        width: 90%;
+        margin: auto;
+    }
+
+    p.hint {
+        width: unset;
+    }
+
+    ul, ol {
+        width: 100%;
+        max-width: unset;
+        padding: 1rem;
+    }
+
+    pre {
+        max-width: auto;
+        width: 100%;
+        font-size: 12pt;
+        padding-left: 0
+    }
+
 }
